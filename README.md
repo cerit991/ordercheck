@@ -11,9 +11,9 @@ Bu proje, restoran satın alma süreçlerinde ürün taleplerini toplamak ve PDF
    ```
 2. `.env` dosyanızı aşağıdaki örneğe göre oluşturun:
    ```env
-   SENDER_EMAIL=ornek@firma.com
+   SENDER_EMAIL=kendi mailini gireceksin 
    SENDER_PASSWORD= ## mail den uygulama şifresi alacaksın bu kadar yeterli.
-   RECIPIENT_EMAIL=satinalma@firma.com
+   RECIPIENT_EMAIL=buraya şirket maili girebilirsin departmanlar siparişleri bu mail e gönderecek program vasıtası ile 
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=465
    SMTP_SECURE=true
