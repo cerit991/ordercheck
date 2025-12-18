@@ -12,7 +12,7 @@ Bu proje, restoran satın alma süreçlerinde ürün taleplerini toplamak ve PDF
 2. `.env` dosyanızı aşağıdaki örneğe göre oluşturun:
    ```env
    SENDER_EMAIL=kendi mailini gireceksin 
-   SENDER_PASSWORD= ## mail den uygulama şifresi alacaksın bu kadar yeterli.
+   SENDER_PASSWORD= ## https://myaccount.google.com/apppasswords ## bu bağlantıdan uygulama şifresi alınacak size özel verilen şifreyi bu kısma girmeniz yeterli.
    RECIPIENT_EMAIL=buraya şirket maili girebilirsin departmanlar siparişleri bu mail e gönderecek program vasıtası ile 
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=465
