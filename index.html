@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sipariş Formu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(18, 18, 26, 0.7);
+            --bg-card-hover: rgba(24, 24, 36, 0.8);
+            --border-color: rgba(255, 255, 255, 0.06);
+            --border-hover: rgba(255, 255, 255, 0.12);
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --accent-light: #818cf8;
+            --success: #10b981;
+            --danger: #ef4444;
+            --danger-soft: rgba(239, 68, 68, 0.1);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            --gradient-2: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Effects */
+        .bg-effects {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-effects::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+            animation: bgPulse 20s ease-in-out infinite;
+        }
+
+        .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+        }
+
+        @keyframes bgPulse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-5%, 5%) scale(1.1); }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1900px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 280px 1fr 1.4fr;
+            gap: 1.5rem;
+            min-height: 100vh;
+            align-items: start;
+        }
+
+        @media (max-width: 1400px) {
+            .container {
+                grid-template-columns: 240px 1fr 1.2fr;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+                max-width: 700px;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .group-sidebar {
+                position: relative;
+                top: 0;
+            }
+            
+            .group-list {
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                max-height: none;
+                overflow-y: visible;
+            }
+            
+            .group-item {
+                width: auto;
+                padding: 0.625rem 1rem;
+            }
+            
+            .group-item .group-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0.75rem;
+                gap: 0.75rem;
+            }
+
+            .card {
+                border-radius: 16px;
+            }
+
+            .card-header {
+                padding: 1rem 1.25rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .card-title {
+                font-size: 1rem;
+            }
+
+            .card-title .icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+            }
+
+            .card-title .icon svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .card-body {
+                padding: 1.25rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .form-input,
+            .form-select {
+                padding: 0.75rem 0.875rem;
+                font-size: 16px;
+            }
+
+            .search-wrapper {
+                width: 100%;
+            }
+
+            .search-input {
+                font-size: 16px;
+            }
+
+            .group-list {
+                padding: 0.75rem;
+                gap: 0.375rem;
+            }
+
+            .group-item {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.8125rem;
+                border-radius: 10px;
+            }
+
+            .group-item .group-icon {
+                width: 26px;
+                height: 26px;
+                border-radius: 6px;
+            }
+
+            .group-item .group-icon svg {
+                width: 14px;
+                height: 14px;
+            }
+
+            .group-item .group-count {
+                font-size: 0.6875rem;
+                padding: 0.2rem 0.4rem;
+            }
+
+            .product-table-wrapper {
+                margin-top: 1rem;
+                max-height: 350px;
+            }
+
+            .product-table th,
+            .product-table td {
+                padding: 0.75rem 0.625rem;
+                font-size: 0.8125rem;
+            }
+
+            .product-table th:nth-child(2),
+            .product-table td:nth-child(2) {
+                display: none;
+            }
+
+            .product-table .btn-sm {
+                padding: 0.4rem 0.625rem;
+                font-size: 0.6875rem;
+            }
+
+            .product-table .btn-sm svg {
+                display: none;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .header-actions .btn {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .selected-table-wrapper {
+                max-height: 350px;
+            }
+
+            .selected-table th,
+            .selected-table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.8125rem;
+            }
+
+            .selected-table th:nth-child(1),
+            .selected-table td:nth-child(1),
+            .selected-table th:nth-child(3),
+            .selected-table td:nth-child(3) {
+                display: none;
+            }
+
+            .selected-table .actions {
+                flex-direction: column;
+                gap: 0.375rem;
+            }
+
+            .selected-table .btn-sm {
+                padding: 0.375rem 0.5rem;
+                font-size: 0.6875rem;
+            }
+
+            .selected-table .btn-sm svg {
+                width: 12px;
+                height: 12px;
+            }
+
+            .item-quantity {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            .empty-state {
+                padding: 1.5rem 1rem;
+            }
+
+            .empty-state-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+            }
+
+            .empty-state-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .empty-state-text {
+                font-size: 0.8125rem;
+            }
+
+            .badge {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6875rem;
+            }
+
+            .badge-count {
+                width: 18px;
+                height: 18px;
+                font-size: 0.625rem;
+            }
+
+            .modal {
+                border-radius: 16px;
+                margin: 0.5rem;
+            }
+
+            .modal-header {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .modal-title {
+                font-size: 1rem;
+            }
+
+            .modal-body {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            .modal-body .form-input {
+                font-size: 16px;
+            }
+
+            .pdf-modal {
+                margin: 0.5rem;
+            }
+
+            .pdf-modal .modal-header {
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+
+            .pdf-frame {
+                height: 55vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0.5rem;
+            }
+
+            .card-header {
+                padding: 0.875rem 1rem;
+            }
+
+            .card-body {
+                padding: 1rem;
+            }
+
+            .group-item .group-name {
+                max-width: 80px;
+            }
+
+            .product-table th:nth-child(3),
+            .product-table td:nth-child(3) {
+                display: none;
+            }
+
+            .selected-table th:nth-child(5),
+            .selected-table td:nth-child(5) {
+                display: none;
+            }
+
+            .selected-table .actions {
+                flex-direction: row;
+            }
+
+            .selected-table .btn-sm span:not(.sr-only) {
+                display: none;
+            }
+
+            .selected-table .btn-sm svg {
+                display: block;
+            }
+
+            .header-actions {
+                flex-direction: column;
+            }
+
+            .header-actions .btn {
+                width: 100%;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            animation: cardEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes cardEnter {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .card-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .card-title .icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .card-title .icon svg {
+            width: 18px;
+            height: 18px;
+            color: white;
+        }
+
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        /* Left Column */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Right Column - Selected Items */
+        .right-column {
+            height: fit-content;
+        }
+
+        /* Group Sidebar */
+        .group-sidebar {
+            position: sticky;
+            top: 2rem;
+            height: fit-content;
+        }
+
+        .group-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .group-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1rem;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            width: 100%;
+        }
+
+        .group-item:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .group-item.active {
+            background: var(--gradient-2);
+            border-color: rgba(99, 102, 241, 0.3);
+            color: var(--accent-light);
+        }
+
+        .group-item .group-icon {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .group-item.active .group-icon {
+            background: var(--gradient-1);
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .group-item .group-icon svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .group-item .group-name {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .group-item .group-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            color: var(--text-muted);
+        }
+
+        .group-item.active .group-count {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--accent-light);
+        }
+
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-input,
+        .form-select {
+            padding: 0.875rem 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2371717a'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+            padding-right: 2.5rem;
+        }
+
+        .form-select option {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        /* Search Input */
+        .search-wrapper {
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        /* Product Table */
+        .product-table-wrapper {
+            margin-top: 1.5rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            max-height: 450px;
+            overflow-y: auto;
+        }
+
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .product-table thead {
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%);
+        }
+
+        .product-table th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-light);
+        }
+
+        .product-table tbody tr {
+            border-top: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .product-table tbody tr:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .product-table td {
+            padding: 1rem 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        .product-table .product-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .product-table .product-group {
+            color: var(--text-secondary);
+        }
+
+        .product-table .product-unit {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1rem;
+            font-family: inherit;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 15px var(--accent-glow);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px var(--accent-glow);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
+        }
+
+        .btn-danger {
+            color: var(--danger);
+            background: var(--danger-soft);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-danger:hover:not(:disabled) {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 0.875rem;
+            font-size: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .btn-icon {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            border-radius: 8px;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Action Buttons in Header */
+        .header-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        /* Selected Items Table */
+        .selected-table-wrapper {
+            overflow-x: auto;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .selected-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .selected-table thead {
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%);
+        }
+
+        .selected-table th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-light);
+            white-space: nowrap;
+        }
+
+        .selected-table th:last-child {
+            text-align: center;
+        }
+
+        .selected-table tbody tr {
+            border-top: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+        }
+
+        .selected-table tbody tr:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .selected-table td {
+            padding: 1rem 1.25rem;
+            font-size: 0.875rem;
+            white-space: nowrap;
+        }
+
+        .selected-table .row-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .selected-table .item-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .selected-table .item-group {
+            color: var(--text-secondary);
+        }
+
+        .selected-table .item-quantity {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            color: var(--accent-light);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.375rem 0.75rem;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .selected-table .item-unit {
+            color: var(--text-muted);
+        }
+
+        .selected-table .actions {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .empty-state {
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+
+        .empty-state-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            background: var(--gradient-2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--border-color);
+        }
+
+        .empty-state-icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--text-muted);
+        }
+
+        .empty-state-text {
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            transform: scale(0.95) translateY(10px);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        .modal-subtitle {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .modal-close {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .modal-body .form-input[readonly] {
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-secondary);
+        }
+
+        .modal-body .btn-primary {
+            width: 100%;
+            padding: 0.875rem;
+            font-size: 0.9375rem;
+            margin-top: 0.5rem;
+        }
+
+        /* PDF Modal */
+        .pdf-modal {
+            max-width: 1100px;
+        }
+
+        .pdf-modal .modal-body {
+            padding: 1.5rem;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 65vh;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: white;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            background: var(--gradient-2);
+            border: 1px solid var(--border-color);
+            color: var(--accent-light);
+        }
+
+        .badge-count {
+            background: var(--accent);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6875rem;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-hover);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .card-header {
+                padding: 1.25rem 1.5rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .card-title {
+                font-size: 1.125rem;
+            }
+
+            .form-grid {
+                gap: 1rem;
+            }
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Error State */
+        .error-message {
+            padding: 1rem 1.25rem;
+            background: var(--danger-soft);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 12px;
+            color: var(--danger);
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        /* Tooltip */
+        [data-tooltip] {
+            position: relative;
+        }
+
+        [data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-4px);
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+
+        [data-tooltip]:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(-8px);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effects">
+        <div class="grid-overlay"></div>
+    </div>
+
+    <div class="container">
+        <!-- Group Sidebar -->
+        <div class="card group-sidebar">
+            <div class="card-header" style="padding: 1.25rem 1.5rem;">
+                <h2 class="card-title" style="font-size: 1rem;">
+                    <span class="icon" style="width: 32px; height: 32px; border-radius: 8px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                        </svg>
+                    </span>
+                    Kategoriler
+                </h2>
+            </div>
+            <div id="group-list" class="group-list">
+                <!-- Groups will be rendered here -->
+            </div>
+        </div>
+
+        <div class="left-column">
+            <!-- Order Info Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h1 class="card-title">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" />
+                                </svg>
+                            </span>
+                            Sipariş Bilgileri
+                        </h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form id="order-form" class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="requester">Siparişi Oluşturan</label>
+                            <input id="requester" name="requester" type="text" required placeholder="Ad Soyad" class="form-input" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="department">Departman</label>
+                            <select id="department" name="department" required class="form-select">
+                                <option value="" disabled selected>Seçiniz</option>
+                                <option value="Mutfak">Mutfak</option>
+                                <option value="Bar">Bar</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Products Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <h2 class="card-title">
+                            <span class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                                </svg>
+                            </span>
+                            Ürünler
+                        </h2>
+                        <p class="card-subtitle">Listeden bir ürüne tıklayarak ekleyin</p>
+                    </div>
+                    <div class="search-wrapper">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                        </svg>
+                        <input id="product-search" type="search" placeholder="Ürün ara..." class="search-input" />
+                    </div>
+                </div>
+                <div class="card-body" style="padding-top: 0;">
+                    <div id="product-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selected Items Card -->
+        <div class="card right-column">
+            <div class="card-header">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <h2 class="card-title">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                            </svg>
+                        </span>
+                        Seçilen Ürünler
+                    </h2>
+                    <span class="badge" id="item-count-badge" style="display: none;">
+                        <span class="badge-count" id="item-count">0</span>
+                        ürün
+                    </span>
+                </div>
+                <div class="header-actions">
+                    <button id="download-pdf" type="button" disabled class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                        </svg>
+                        PDF Önizle
+                    </button>
+                    <button id="clear-items" type="button" class="btn btn-danger">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                        </svg>
+                        Temizle
+                    </button>
+                </div>
+            </div>
+            <div class="selected-table-wrapper">
+                <table class="selected-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Ürün</th>
+                            <th>Grup</th>
+                            <th>Miktar</th>
+                            <th>Birim</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody id="selected-items">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quantity Modal -->
+    <div id="quantity-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div>
+                    <h3 id="modal-product-name" class="modal-title"></h3>
+                    <p id="modal-product-code" class="modal-subtitle"></p>
+                </div>
+                <button id="modal-close" class="modal-close" aria-label="Kapat">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <form id="quantity-form" class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="modal-quantity">Miktar</label>
+                    <input id="modal-quantity" type="number" min="1" step="1" required class="form-input" placeholder="Miktar giriniz" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="modal-unit">Birim</label>
+                    <input id="modal-unit" type="text" readonly class="form-input" />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    Listeye Ekle
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="modal-overlay">
+        <div class="modal pdf-modal">
+            <div class="modal-header">
+                <h3 class="modal-title">PDF Önizleme</h3>
+                <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <button id="mail-send" type="button" disabled class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                        </svg>
+                        Mail Gönder
+                    </button>
+                    <button id="pdf-close" class="modal-close" aria-label="Kapat">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdf-frame" class="pdf-frame" title="Sipariş PDF Önizleme"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const productListEl = document.getElementById('product-list');
+        const selectedItemsEl = document.getElementById('selected-items');
+        const searchInput = document.getElementById('product-search');
+        const modal = document.getElementById('quantity-modal');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const modalProductName = document.getElementById('modal-product-name');
+        const modalProductCode = document.getElementById('modal-product-code');
+        const modalQuantityInput = document.getElementById('modal-quantity');
+        const modalUnitInput = document.getElementById('modal-unit');
+        const quantityForm = document.getElementById('quantity-form');
+        const clearButton = document.getElementById('clear-items');
+        const downloadButton = document.getElementById('download-pdf');
+        const requesterInput = document.getElementById('requester');
+        const departmentSelect = document.getElementById('department');
+        const pdfModal = document.getElementById('pdf-modal');
+        const pdfCloseBtn = document.getElementById('pdf-close');
+        const pdfFrame = document.getElementById('pdf-frame');
+        const mailButton = document.getElementById('mail-send');
+        const itemCountBadge = document.getElementById('item-count-badge');
+        const itemCount = document.getElementById('item-count');
+        const groupListEl = document.getElementById('group-list');
+
+        let pdfObjectUrl = null;
+
+        // State
+        const state = {
+            products: [],
+            filtered: [],
+            groups: [],
+            activeGroup: null,
+            selected: new Map(),
+            activeProduct: null,
+            lastMailData: null,
+            mailConfigured: false,
+            mailSettings: {
+                senderEmail: '',
+                recipientEmail: '',
+            },
+        };
+
+        // Render Groups
+        const renderGroups = () => {
+            groupListEl.innerHTML = '';
+            
+            // All products button
+            const allBtn = document.createElement('button');
+            allBtn.className = `group-item ${state.activeGroup === null ? 'active' : ''}`;
+            allBtn.innerHTML = `
+                <span class="group-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                    </svg>
+                </span>
+                <span class="group-name">Tümü</span>
+                <span class="group-count">${state.products.length}</span>
+            `;
+            allBtn.addEventListener('click', () => {
+                state.activeGroup = null;
+                filterProducts();
+                renderGroups();
+            });
+            groupListEl.appendChild(allBtn);
+
+            // Group buttons
+            state.groups.forEach(group => {
+                const count = state.products.filter(p => p.group === group).length;
+                const btn = document.createElement('button');
+                btn.className = `group-item ${state.activeGroup === group ? 'active' : ''}`;
+                btn.innerHTML = `
+                    <span class="group-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-9-5.25L3 7.5m18 0-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
+                        </svg>
+                    </span>
+                    <span class="group-name">${group}</span>
+                    <span class="group-count">${count}</span>
+                `;
+                btn.addEventListener('click', () => {
+                    state.activeGroup = group;
+                    filterProducts();
+                    renderGroups();
+                });
+                groupListEl.appendChild(btn);
+            });
+        };
+
+        // Filter Products
+        const filterProducts = () => {
+            const query = searchInput.value.toLowerCase();
+            state.filtered = state.products.filter((item) => {
+                const matchesSearch = item.name.toLowerCase().includes(query) ||
+                    item.code.toLowerCase().includes(query) ||
+                    item.group.toLowerCase().includes(query);
+                const matchesGroup = state.activeGroup === null || item.group === state.activeGroup;
+                return matchesSearch && matchesGroup;
+            });
+            renderProducts();
+        };
+
+        // Render Products
+        const renderProducts = () => {
+            productListEl.innerHTML = '';
+            
+            if (!state.filtered.length) {
+                productListEl.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </div>
+                        <p class="empty-state-text">Uygun ürün bulunamadı.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const tableWrapper = document.createElement('div');
+            tableWrapper.className = 'product-table-wrapper';
+
+            const table = document.createElement('table');
+            table.className = 'product-table';
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Grup</th>
+                        <th>Birim</th>
+                        <th style="text-align: center;">Ekle</th>
+                    </tr>
+                </thead>
+            `;
+
+            const tbody = document.createElement('tbody');
+
+            state.filtered
+                .slice()
+                .sort((a, b) => {
+                    const groupCompare = (a.group || '').localeCompare(b.group || '', 'tr');
+                    if (groupCompare !== 0) return groupCompare;
+                    return a.name.localeCompare(b.name, 'tr');
+                })
+                .forEach((item) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="product-name">${item.name}</td>
+                        <td class="product-group">${item.group}</td>
+                        <td><span class="product-unit">${item.unit}</span></td>
+                        <td style="text-align: center;">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                Ekle
+                            </button>
+                        </td>
+                    `;
+
+                    row.querySelector('button').addEventListener('click', () => openModal(item));
+                    row.addEventListener('dblclick', () => openModal(item));
+                    tbody.appendChild(row);
+                });
+
+            table.appendChild(tbody);
+            tableWrapper.appendChild(table);
+            productListEl.appendChild(tableWrapper);
+        };
+
+        // Render Selected Items
+        const renderSelected = () => {
+            selectedItemsEl.innerHTML = '';
+            const hasItems = Boolean(state.selected.size);
+            
+            downloadButton.disabled = !hasItems;
+            
+            // Update badge
+            if (hasItems) {
+                itemCountBadge.style.display = 'inline-flex';
+                itemCount.textContent = state.selected.size;
+            } else {
+                itemCountBadge.style.display = 'none';
+            }
+
+            if (!hasItems) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td colspan="6">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                                </svg>
+                            </div>
+                            <p class="empty-state-text">Henüz ürün seçilmedi</p>
+                        </div>
+                    </td>
+                `;
+                selectedItemsEl.appendChild(row);
+                return;
+            }
+
+            let rowIndex = 0;
+            state.selected.forEach((value, key) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="row-number">${rowIndex + 1}</span></td>
+                    <td class="item-name">${value.name}</td>
+                    <td class="item-group">${value.group}</td>
+                    <td><span class="item-quantity">${value.quantity}</span></td>
+                    <td class="item-unit">${value.unit}</td>
+                    <td>
+                        <div class="actions">
+                            <button type="button" class="btn btn-secondary btn-sm" data-action="edit">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                </svg>
+                                Düzenle
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" data-action="remove">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                                </svg>
+                                Sil
+                            </button>
+                        </div>
+                    </td>
+                `;
+                
+                row.querySelector('[data-action="edit"]').addEventListener('click', () => openModal(value));
+                row.querySelector('[data-action="remove"]').addEventListener('click', () => {
+                    state.selected.delete(key);
+                    renderSelected();
+                });
+                
+                selectedItemsEl.appendChild(row);
+                rowIndex += 1;
+            });
+        };
+
+        // Modal Functions
+        const openModal = (product) => {
+            state.activeProduct = product;
+            modalProductName.textContent = product.name;
+            modalProductCode.textContent = product.group;
+            modalUnitInput.value = product.unit;
+            modalQuantityInput.value = Number.isFinite(product.quantity) ? product.quantity : '';
+            modal.classList.add('active');
+            setTimeout(() => modalQuantityInput.focus(), 100);
+        };
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            state.activeProduct = null;
+            quantityForm.reset();
+        };
+
+        // PDF Functions
+        const openPdfModal = (url) => {
+            if (pdfObjectUrl) window.URL.revokeObjectURL(pdfObjectUrl);
+            pdfObjectUrl = url;
+            pdfFrame.src = url;
+            pdfModal.classList.add('active');
+            
+            const canSendMail = state.mailConfigured;
+            mailButton.disabled = !canSendMail;
+        };
+
+        const closePdfPreview = () => {
+            if (pdfObjectUrl) {
+                window.URL.revokeObjectURL(pdfObjectUrl);
+                pdfObjectUrl = null;
+            }
+            pdfFrame.src = '';
+            pdfModal.classList.remove('active');
+            mailButton.disabled = true;
+        };
+
+        const downloadPdf = async () => {
+            if (!state.selected.size) return;
+
+            const requester = requesterInput.value.trim();
+            const department = departmentSelect.value;
+
+            if (!requester) {
+                requesterInput.focus();
+                return;
+            }
+
+            if (!department) {
+                departmentSelect.focus();
+                return;
+            }
+
+            const items = Array.from(state.selected.values()).map((item) => ({
+                code: item.code,
+                name: item.name,
+                group: item.group,
+                unit: item.unit,
+                quantity: item.quantity
+            }));
+
+            const originalLabel = downloadButton.innerHTML;
+            downloadButton.innerHTML = `
+                <div class="spinner" style="width: 16px; height: 16px; border-width: 2px;"></div>
+                Hazırlanıyor...
+            `;
+            downloadButton.disabled = true;
+            state.lastMailData = null;
+
+            try {
+                const response = await fetch('/api/orders/pdf', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ requester, department, items })
+                });
+
+                if (!response.ok) throw new Error('PDF request failed');
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                state.lastMailData = { requester, department, items };
+                openPdfModal(url);
+            } catch (error) {
+                alert('PDF oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
+                state.lastMailData = null;
+                mailButton.disabled = true;
+            } finally {
+                downloadButton.innerHTML = originalLabel;
+                downloadButton.disabled = !state.selected.size;
+            }
+        };
+
+        const sendMail = async () => {
+            if (!state.lastMailData) {
+                alert('Öncelikle PDF oluşturmanız gerekiyor.');
+                return;
+            }
+
+            if (!state.mailConfigured) {
+                alert('Mail ayarları eksik. Lütfen sistem yöneticisi ile görüşün.');
+                return;
+            }
+
+            const originalLabel = mailButton.innerHTML;
+            mailButton.innerHTML = `
+                <div class="spinner" style="width: 16px; height: 16px; border-width: 2px;"></div>
+                Gönderiliyor...
+            `;
+            mailButton.disabled = true;
+
+            try {
+                const response = await fetch('/api/orders/email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(state.lastMailData),
+                });
+
+                if (!response.ok) throw new Error('Email request failed');
+                alert('Mail başarıyla gönderildi.');
+            } catch (error) {
+                console.error(error);
+                alert('Mail gönderilirken bir hata oluştu. Lütfen tekrar deneyin.');
+            } finally {
+                mailButton.innerHTML = originalLabel;
+                const canSendMail = state.mailConfigured;
+                mailButton.disabled = !canSendMail;
+            }
+        };
+
+        // Event Listeners
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        quantityForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!state.activeProduct) return;
+            
+            const quantity = Number(modalQuantityInput.value);
+            if (!Number.isFinite(quantity) || quantity < 1) {
+                modalQuantityInput.focus();
+                return;
+            }
+            
+            const item = { ...state.activeProduct, quantity };
+            state.selected.set(item.code, item);
+            renderSelected();
+            closeModal();
+        });
+
+        clearButton.addEventListener('click', () => {
+            state.selected.clear();
+            renderSelected();
+            closePdfPreview();
+            state.lastMailData = null;
+        });
+
+        downloadButton.addEventListener('click', downloadPdf);
+        mailButton.addEventListener('click', sendMail);
+
+        pdfCloseBtn.addEventListener('click', closePdfPreview);
+        pdfModal.addEventListener('click', (e) => { if (e.target === pdfModal) closePdfPreview(); });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (!pdfModal.classList.contains('active') === false) closePdfPreview();
+                if (modal.classList.contains('active')) closeModal();
+            }
+        });
+
+        searchInput.addEventListener('input', () => {
+            filterProducts();
+        });
+
+        // Initial Data Load
+        fetch('/api/products')
+            .then((response) => response.json())
+            .then((data) => {
+                state.products = data;
+                state.filtered = data;
+                // Extract unique groups
+                const groupSet = new Set(data.map(p => p.group).filter(Boolean));
+                state.groups = Array.from(groupSet).sort((a, b) => a.localeCompare(b, 'tr'));
+                renderGroups();
+                renderProducts();
+            })
+            .catch(() => {
+                productListEl.innerHTML = '<div class="error-message">Ürün listesi yüklenemedi. Lütfen daha sonra tekrar deneyin.</div>';
+            });
+
+        fetch('/api/settings')
+            .then((response) => response.json())
+            .then((data) => {
+                state.mailConfigured = Boolean(data && data.mailConfigured);
+                state.mailSettings.senderEmail = data?.senderEmail || '';
+                state.mailSettings.recipientEmail = data?.recipientEmail || '';
+                if (state.mailConfigured) {
+                    mailButton.title = `Mail, ${state.mailSettings.recipientEmail} adresine gönderilecektir.`;
+                } else {
+                    mailButton.title = 'Mail ayarları eksik ya da tamamlanmamış.';
+                }
+            })
+            .catch(() => {
+                state.mailConfigured = false;
+                mailButton.title = 'Mail ayarları yüklenemedi.';
+            });
+
+        // Initial render
+        renderSelected();
+    </script>
+</body>
+</html>

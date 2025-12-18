@@ -1,0 +1,2066 @@
+[
+  {
+    "code": "ST00366",
+    "name": "IZGARA ÇİPURA FİLETO",
+    "group": "ANA YEMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00283",
+    "name": "YOU İÇLİ KÖFTE",
+    "group": "ARA SICAK",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00651",
+    "name": "HARDAL TANELİ KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00712",
+    "name": "NANE KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00718",
+    "name": "SUSAM KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00723",
+    "name": "KEKİK ZAHTER KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00705",
+    "name": "SUMAK KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00707",
+    "name": "KARABİBER KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00709",
+    "name": "KÖRİ KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00763",
+    "name": "AKBİBER TOZ KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00706",
+    "name": "TARÇIN TOZ KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00713",
+    "name": "KİMYON KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00711",
+    "name": "KEKİK KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00714",
+    "name": "PUL BİBER KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00715",
+    "name": "TOZ BİBER KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00775",
+    "name": "TUZ 750GR",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00719",
+    "name": "BADEM İÇİ ÇİĞ KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00721",
+    "name": "ERİK KURU KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00703",
+    "name": "KUŞ ÜZÜMÜ KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00998",
+    "name": "TUZ MALDON KG",
+    "group": "BAHARATLAR",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01035",
+    "name": "YENİBAHAR TOZ",
+    "group": "BAHARATLAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00260",
+    "name": "CHAMLİJA FELİX CULPA BYZ",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00567",
+    "name": "SANCERRE BYZ",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00525",
+    "name": "KAYRA V. CHAR.  BYZ 75CL",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00624",
+    "name": "SUVLA CHARDONNAY",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00569",
+    "name": "KAYRA V. S.BLANCO BYZ",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00808",
+    "name": "LAMBERTİ BYZ 75CL",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00792",
+    "name": "PORTA D. BYZ 75CL",
+    "group": "BEYAZ ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00063",
+    "name": "EFES 50 CL",
+    "group": "BİRALAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00068",
+    "name": "CORONA",
+    "group": "BİRALAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00064",
+    "name": "EFES MALT",
+    "group": "BİRALAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01157",
+    "name": "ESTRELLA GALİCİA ALKOLSÜZ LAGER 25CL",
+    "group": "BİRALAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00505",
+    "name": "CİN HENDRİCKS 70CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00509",
+    "name": "CİN MALF GIN ROSA 70CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00503",
+    "name": "CİN MONKEY47 SCHWRZL 50CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00506",
+    "name": "CİN TANGUERAY TEN 70CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00511",
+    "name": "CİN MONKEY47 SLOE 50CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00515",
+    "name": "CİN BEEFETER PİNK 70CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01127",
+    "name": "GIN MARE 70CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01126",
+    "name": "GORDON GIN PINK 70CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01043",
+    "name": "GORDON CIN 100CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01091",
+    "name": "BEEFEATER GIN 100CL",
+    "group": "CİNLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00435",
+    "name": "HENNSY X.O 70CL",
+    "group": "COGNAC GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00726",
+    "name": "REMMY MARTİN VSOP 70CL",
+    "group": "COGNAC GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00357",
+    "name": "SAKİ TUNA KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00356",
+    "name": "SOMON NORVEÇ FİLETO KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00359",
+    "name": "KABUKLU MİDYE KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00329",
+    "name": "KARİDES KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00358",
+    "name": "AHTAPOT KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00370",
+    "name": "LEVREK KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00371",
+    "name": "ÇUPİRA KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00823",
+    "name": "MİDYE ET KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00842",
+    "name": "KALAMAR TÜP KG",
+    "group": "DENİZ ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00595",
+    "name": "DEPOZİTO EFES KASA",
+    "group": "DEPOZİTOLAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00620",
+    "name": "DEPOZİTO 300ML BOŞ KOMPLE",
+    "group": "DEPOZİTOLAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00594",
+    "name": "DEPOZİTO EFES ŞİŞE",
+    "group": "DEPOZİTOLAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01012",
+    "name": "KEBAB BARDAĞI ADET",
+    "group": "DEPOZİTOLAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00826",
+    "name": "DONDURMA VANİLYA KG",
+    "group": "DONDURMA",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00826",
+    "name": "DONDURMA VANİLYA KG",
+    "group": "DONDURMA",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00588",
+    "name": "DANA ANTİRİKOT KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00590",
+    "name": "KUZU PİRZOLA KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00587",
+    "name": "DANA BONFİLE KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00589",
+    "name": "DANA KIYMA KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00882",
+    "name": "KUZU İNCİK KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00828",
+    "name": "KUZU KUYRUK YAĞI KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00883",
+    "name": "KUZU KEMİKSİZ KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00910",
+    "name": "FÜME ET POLENEZ KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01154",
+    "name": "TAVUK SCHNITZEL 1KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01037",
+    "name": "DANA KUŞBAŞI KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00927",
+    "name": "SUCUK KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01039",
+    "name": "KUZU KOL KEMİKLİ KG",
+    "group": "ET ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00674",
+    "name": "MAYONEZ TRUFFLE 772GR",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00636",
+    "name": "KEDİ DİLİ SAVIORDI 200GR",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00639",
+    "name": "LOTUS BISCOFF ADET",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00657",
+    "name": "BAL SÜZME KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00655",
+    "name": "DEMİ GLACE SOS KNORR KG",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00681",
+    "name": "ORMAN MEYVESİ KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00646",
+    "name": "DOMATES KURUTULMUŞ KG",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00653",
+    "name": "BUĞDAY AŞURELİK KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00650",
+    "name": "KAPARİ ÇİÇEĞİ 190 GR",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00677",
+    "name": "MAYONEZ KOVA KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00654",
+    "name": "BULGUR KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00605",
+    "name": "YUMURTA ADET",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00656",
+    "name": "DOMATES DOĞRANMIŞ KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00782",
+    "name": "ZEYTİN YEŞİL DİLİMLİ KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00781",
+    "name": "NESCAFE GOLD 900GR",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00686",
+    "name": "SİRKE ELMA LT",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00862",
+    "name": "ŞANTİ TORBASI 26CM",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00752",
+    "name": "PİŞİRME KAĞIDI",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00685",
+    "name": "SİRKE ÜZÜM LT",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00836",
+    "name": "PANKO ORTA 1 KG",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00871",
+    "name": "ZEYTİN KIRMA KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00702",
+    "name": "ANCUEZ FİLETO (BALIK EZMESİ)",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00692",
+    "name": "NOHUT KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00803",
+    "name": "NAR EKŞİSİ LT",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00780",
+    "name": "BUZDOLABI POŞETİ ORTA",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00698",
+    "name": "PİRİNÇ KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00694",
+    "name": "SALÇA DOMATES KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01097",
+    "name": "PANTI SWEET CHILI 730ML",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01029",
+    "name": "SOYA SOS 825ML",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01156",
+    "name": "FINE FOOD BARBUNYA 2,5KG",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01160",
+    "name": "GRISSINI SADE 125GR",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01109",
+    "name": "KIKOMAN PONZU SOYA SOS 1000ML",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00907",
+    "name": "PATATES PÜRESİ KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01020",
+    "name": "KAYA TUZU 500GR",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01060",
+    "name": "LAVAŞ EKMEK",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00913",
+    "name": "MERCİMEK KIRMIZI KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00899",
+    "name": "ZEYTİN SİYAH DİLİMLİ KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01115",
+    "name": "MAKARNA FİYONK KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01116",
+    "name": "FASULYE KURU KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01021",
+    "name": "DONER YAPRAK 1KG",
+    "group": "GIDA GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01089",
+    "name": "KARANFİL",
+    "group": "GIDA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00615",
+    "name": "MEYVE SUYU VİŞNE 1 LT",
+    "group": "İÇECEKLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00616",
+    "name": "MEYVE SUYU PORTAKAL 1LT",
+    "group": "İÇECEKLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00613",
+    "name": "MEYVE SUYU ANANAS 1LT",
+    "group": "İÇECEKLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00617",
+    "name": "COLA PET 1 LT",
+    "group": "İÇECEKLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00870",
+    "name": "LİMONATA 2LT",
+    "group": "İÇECEKLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00213",
+    "name": "PRODOM KIRMIZI ŞİŞE",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00215",
+    "name": "MALBEC TERRAZOS 75CL",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00208",
+    "name": "ASTİCUS MONS CAMLİJA",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00212",
+    "name": "NEVİ ŞAHSINA MÜNASIR",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00536",
+    "name": "SARAFIN CAB.SAUV.KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00530",
+    "name": "K.D PENDORE SYRAH KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00570",
+    "name": "KAYRA V.MERLOT KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00586",
+    "name": "K.D COTES D AVANOS KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00538",
+    "name": "M.PORTA CAELİ AMENT KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00571",
+    "name": "KAYRA V.CAB.SAUV. KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00524",
+    "name": "KAYRA ÖKÜZGÖZÜ",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00786",
+    "name": "LİKYA VİNEYARDS KRM",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00791",
+    "name": "PORTA D. KRM 75CL",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00807",
+    "name": "LAMBERTİ KRM 75CL",
+    "group": "KIRMIZI ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00451",
+    "name": "LİKÖR BAİLEYS 70 CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00454",
+    "name": "LİKÖR FERNET BRANCA 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00469",
+    "name": "LİKÖR LİMENCELLO 1 LT",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00453",
+    "name": "LİKÖR DISARONNO 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00459",
+    "name": "LİKÖR CONTREAU 1 LT",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00477",
+    "name": "LİKÖR MEZCAL MITRE 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00467",
+    "name": "LİKÖR SAFARİ 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00452",
+    "name": "LİKÖR KAHLUA 1 LT",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00466",
+    "name": "LİKÖR CHAMBORD 50CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00457",
+    "name": "LİKÖR APEROL 1 LT",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00455",
+    "name": "LİKÖR MALİBU 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00473",
+    "name": "LİKÖR SHANKYS VİSKİ 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00462",
+    "name": "LİKÖR TİA MARİA 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00464",
+    "name": "LİKÖR JAGERMEISTER 1LT",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00516",
+    "name": "LİKÖR CAMPARİ 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00831",
+    "name": "LİKÖR SOUTHERN CONFORT",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00833",
+    "name": "LİKÖR GRAPPA 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01023",
+    "name": "ARCHERS 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01136",
+    "name": "CARDINAL MELON 70CL",
+    "group": "LİKÖRLER GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00659",
+    "name": "SPAGETTİ DE CECCO 500GR",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00658",
+    "name": "SPAGETTİ SİYAH 500GR",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00660",
+    "name": "FETTUCİNİ DE CECCO 500GR",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00887",
+    "name": "MAKARNA BURGU KG",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00699",
+    "name": "MAKARNA ERİŞTE KG",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00700",
+    "name": "MAKARNA KALEM KG",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01113",
+    "name": "SPAGETTI DE CECCO 1000GR",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00967",
+    "name": "LINGIINE DE CECCO 500 gr",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01114",
+    "name": "LINGUINE DE CECCO 1000GR",
+    "group": "MAKARNALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00640",
+    "name": "KAKAO TOZ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00641",
+    "name": "İNCİR KURUSU KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00662",
+    "name": "KAYISI KURU KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00645",
+    "name": "CEVİZ İÇİ KELEBEK KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00672",
+    "name": "TAHİN KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00644",
+    "name": "KREMA TİKVEŞLİ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00648",
+    "name": "ŞEKER TOZ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00643",
+    "name": "KREMA SICAK UYGULAMA 1 KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00661",
+    "name": "KUVERTÜR BİTTER BEYAZ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00762",
+    "name": "BADEM İÇİ",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00817",
+    "name": "ŞEKERPARE KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00877",
+    "name": "CAJUN 600GR",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00701",
+    "name": "FISTIK KUŞBOKU TOZ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00806",
+    "name": "NİŞASTA MISIR KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00886",
+    "name": "KABAK ÇEKİRDEĞİ İÇ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01151",
+    "name": "PEKMEZ KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00903",
+    "name": "TUZLU FISTIK KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01034",
+    "name": "İÇ ANTEP FISTIK",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01007",
+    "name": "BADEM FİLE KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00903",
+    "name": "TUZLU FISTIK KG",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01158",
+    "name": "KARE RUSTİK EKMEK 420G 18/3",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01155",
+    "name": "KALEM BOREK SIGARA",
+    "group": "PASTAHANE GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01147",
+    "name": "PATATESLİ STİCK BÖREK 95GR",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01148",
+    "name": "PEYNİRLİ STİCK BÖREK 95GR",
+    "group": "PASTAHANE GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00246",
+    "name": "RUFFINO",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00254",
+    "name": "DOM PERIGNON",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00253",
+    "name": "RUFFINO ROZE",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00578",
+    "name": "MOET&CHANDON BRUT IMP.",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00580",
+    "name": "MOET&CHANDON İCE İMP.",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00579",
+    "name": "MOET&CHANDOM ICE ROSE",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00861",
+    "name": "MOETCHANDOM ROSE İMP.",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00809",
+    "name": "TALLERO KÖPÜKLÜ 75 CL",
+    "group": "PROSECCO VE ŞAMPANYA",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00297",
+    "name": "YENİ RAKI 35 CL",
+    "group": "RAKILAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00724",
+    "name": "TEKİRDAĞ ALTIN SERİ 70CL",
+    "group": "RAKILAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00820",
+    "name": "RAKI MERCAN 70CL",
+    "group": "RAKILAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00838",
+    "name": "TEKİRDAĞ ALTINSERİ 35 CL",
+    "group": "RAKILAR",
+    "unit": "Adet"
+  },
+  {
+    "code": "ST01111",
+    "name": "TEKİRDAĞ ALTIN SERİ 50CL",
+    "group": "RAKILAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01083",
+    "name": "YENI RAKI 70 CL",
+    "group": "RAKILAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00447",
+    "name": "HAVANA CLUP 3 ANOS 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00442",
+    "name": "TEKİLA ZACAPA 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00448",
+    "name": "HAVANA CLUP SELECTİON 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01137",
+    "name": "ROM BUMBU 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01119",
+    "name": "BACARDI 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00930",
+    "name": "CAPTAİN MORGAN WHİTE 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00930",
+    "name": "CAPTAİN MORGAN WHİTE 70CL",
+    "group": "ROMLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00231",
+    "name": "PLAYA DOLUCA",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00575",
+    "name": "WHISPERİNG ANGEL ROSE",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00554",
+    "name": "MONTMEYRAC ROSE",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00625",
+    "name": "SUVLA BLUSH KARASAKIZ",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00816",
+    "name": "LAMBERTİ ROZE 75CL",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00793",
+    "name": "PORTA D.ROZE 75 CL",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01041",
+    "name": "MON REVE TEMPRANILLO SHIRAZ ROZE 75CL",
+    "group": "ROSE ŞARAP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01022",
+    "name": "BLACK LABEL 35CL",
+    "group": "SCOTCH WHİSKY",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00265",
+    "name": "ST PELLEGRINO 750 ML",
+    "group": "SOFT DRINKS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00267",
+    "name": "SPRITE",
+    "group": "SOFT DRINKS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00266",
+    "name": "FANTA",
+    "group": "SOFT DRINKS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00288",
+    "name": "COLA ZERO",
+    "group": "SOFT DRINKS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00033",
+    "name": "COCA COLA",
+    "group": "SOFT DRINKS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01081",
+    "name": "MEYVE SUYU EKŞİ ELMA 1LT",
+    "group": "SOFT DRINKS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00652",
+    "name": "HARDAL DJON 850GR",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00890",
+    "name": "WOCHESTER SOS 600ML",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00880",
+    "name": "BLAZE ACETUM 380ML",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00744",
+    "name": "MAYONEZ HEINZ 400GR",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00743",
+    "name": "KETÇAP HEINZ 460GR",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01055",
+    "name": "WOCHESTER SOS 150ML",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01144",
+    "name": "BALSAMIK GLAZE BORGO 607GR",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00966",
+    "name": "SOYA SOS 700ML",
+    "group": "SOS GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00664",
+    "name": "PEYNİR OBRUK LARENDE KAŞAR KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00596",
+    "name": "KAYMAK RULO 150GR",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00599",
+    "name": "PEYNİR BEYAZ KLASİK KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00600",
+    "name": "PEYNİR KAŞAR KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00601",
+    "name": "PEYNİR TAM YAĞLI BEYAZ KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00598",
+    "name": "YOĞURT SÜZME KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00597",
+    "name": "TEREYAĞ BLOK 1 KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00678",
+    "name": "PEYNİR SAĞANAKİ KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00666",
+    "name": "PEYNİR KAPADOKYA MAĞARA KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00680",
+    "name": "PEYNİR MASCARPONE 350 GR",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00679",
+    "name": "PEYNİR ROKFOR KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00665",
+    "name": "PEYNİR KÜTÜK KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00675",
+    "name": "PEYNİR PARMESAN KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00688",
+    "name": "PEYNİR CHEDAR DİLİMLİ KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00735",
+    "name": "SÜT Y.YAĞLI LT",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00776",
+    "name": "PEYNİR MOZERALLA KÜP KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00801",
+    "name": "SÜT YAĞLI 1LT",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00810",
+    "name": "PEYNİR BURATTA KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00761",
+    "name": "PEYNİR LABNE KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00801",
+    "name": "SÜT YAĞLI 1LT",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00733",
+    "name": "YOĞURT Y.YAĞLI KG",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01002",
+    "name": "SÜT LAKTOZSUZ 1LT",
+    "group": "SÜT ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00581",
+    "name": "ŞAMPANYA CHANDON GARDEN SPRİTZ",
+    "group": "ŞAMPANYA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01139",
+    "name": "MOET&CHANDON N.I.R NECTAR",
+    "group": "ŞAMPANYA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01140",
+    "name": "ARMAND DE BRICNAC BRUT 70CL",
+    "group": "ŞAMPANYA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00527",
+    "name": "ŞARAP K.D MİSKET BYZ",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00555",
+    "name": "ŞARAP ARTHUR METZ RIESLING BYZ",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00533",
+    "name": "ŞARAP PASCAL CHAPLIS BYZ",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00566",
+    "name": "ŞARAP GUIDO MAZERELLO GAVİ BYZ",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01049",
+    "name": "MON REVE VIOGNIER BEYAZ 75CL",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01150",
+    "name": "S EMIR SAUVIGNON KAPADOKYA",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01048",
+    "name": "MON REVE CHARDONAY CHENIN BLANC 75CL",
+    "group": "ŞARAP BYZ GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00542",
+    "name": "ŞARAP LA CONSENSUS SHIRAZ C.S MERLOT KRM",
+    "group": "ŞARAP KRM GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00551",
+    "name": "ŞARAP VİCTOR BERART BEAUJOLAIS KRM",
+    "group": "ŞARAP KRM GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00560",
+    "name": "ŞARAP PRUNOTTO BAROLO KRM",
+    "group": "ŞARAP KRM GRUP",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00537",
+    "name": "ŞARAP AYDIN PRODOM ÖKÜZGÖZÜ",
+    "group": "ŞARAP ÖKÜZGÖZÜ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00682",
+    "name": "ŞOKLU PATATES 9*18  KG",
+    "group": "ŞOKLU GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00779",
+    "name": "BEZELYE ŞOKLU KG",
+    "group": "ŞOKLU GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00897",
+    "name": "KUŞKONMAZ ŞOKLU KG",
+    "group": "ŞOKLU GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01118",
+    "name": "SEBZE MIX DON. 4*2,5 KG",
+    "group": "ŞOKLU GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00999",
+    "name": "MİLFÖY HAMURU ŞOKLU KG",
+    "group": "ŞOKLU GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00909",
+    "name": "ARPACIK SOĞAN ŞOKLU 2,5 KG",
+    "group": "ŞOKLU GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00813",
+    "name": "MANGO PÜRE 1 KG",
+    "group": "ŞURUP GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01080",
+    "name": "FO HİNDİSTAN CEVİZİ ŞURUBU 70CL",
+    "group": "ŞURUP GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00629",
+    "name": "PİLİÇ IZGARA TAVA KG",
+    "group": "TAVUK ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00593",
+    "name": "TAVUK KANAT KG",
+    "group": "TAVUK ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00630",
+    "name": "PİLİÇ BONFİLE KG",
+    "group": "TAVUK ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00750",
+    "name": "PİLİÇ NUGGET KG",
+    "group": "TAVUK ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00790",
+    "name": "PİLİÇ BAGET KG",
+    "group": "TAVUK ÜRÜNLERİ",
+    "unit": "KG"
+  },
+  {
+    "code": "ST01159",
+    "name": "BÜTÜN PİLİÇ KG",
+    "group": "TAVUK ÜRÜNLERİ",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00437",
+    "name": "TEKİLA OLMEGA 70CL",
+    "group": "TEQULİA GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00606",
+    "name": "TURŞU KORNİŞON NO:3",
+    "group": "TURŞULAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00607",
+    "name": "TURŞU TÜRLÜ KG",
+    "group": "TURŞULAR GRUBU",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00647",
+    "name": "UN KG",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00604",
+    "name": "HAMBURGER EKMEĞİ 110GR",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00634",
+    "name": "MİNİ BAGET BEYAZ 35GR",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00663",
+    "name": "KURU MAYA 100GR",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00851",
+    "name": "TOST EKMEĞİ 14X14 ADET",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00875",
+    "name": "İRMİK KG",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00697",
+    "name": "YUFKA BAKLAVALIK KG",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00751",
+    "name": "MISIR UNU KG",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00847",
+    "name": "TAM BUĞDAY EKMEK 400GR",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01042",
+    "name": "TORTILLA EKMEK",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00912",
+    "name": "MİNİ BAGET KEPEKLİ 35gr",
+    "group": "UNLAR VE EKMEKLER",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00482",
+    "name": "MARTİNİ BİANCO 75CL",
+    "group": "VERMUTLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00480",
+    "name": "MARTİNİ EXTRA DRY 75CL",
+    "group": "VERMUTLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00481",
+    "name": "MARTİNİ ROSSO 75CL",
+    "group": "VERMUTLAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00318",
+    "name": "ABSOLUT 35 CL",
+    "group": "VOTKALAR",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00499",
+    "name": "VOTKA ABSOLUT LİME 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00493",
+    "name": "VOTKA SMİRNOF G.APPLE 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00489",
+    "name": "VOTKA BELLUGA NOBLE 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00487",
+    "name": "VOTKA ABSOLUT 1 LT",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00490",
+    "name": "VOTKA ABSOLUT ELXY 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00486",
+    "name": "VOTKA ABSOLUT 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00488",
+    "name": "BELVEDERE VOTKA 70 CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00500",
+    "name": "VOTKA ABSOLUT RASBERRİ 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01132",
+    "name": "SMIRNOFF 35CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01146",
+    "name": "VODKA SKY 70CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01131",
+    "name": "SMIRNOFF 100CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01143",
+    "name": "BELVEDERE 300CL",
+    "group": "VOTKALAR GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00396",
+    "name": "WHISKY BENRİACH 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00400",
+    "name": "WHISKY JW DOUBLE BLACK 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00409",
+    "name": "WHISKY ARTBEG 5Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00402",
+    "name": "WHISKY SİNGLE BARREL 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00430",
+    "name": "WHISKY KAMIKI 50CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00395",
+    "name": "WHISKY COAL İLA 12 Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00399",
+    "name": "WHISKY GLENFIDDICH 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00419",
+    "name": "WHISKY BLUE LABEL 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00414",
+    "name": "WHISKY CHIVAS REGAL 18Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00424",
+    "name": "WHISKY JACK DANIELS FIRE70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00421",
+    "name": "WHISKY JACK DANIELS HONEY 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00411",
+    "name": "WHISKY WHİSTLE PIG 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00415",
+    "name": "WHISKY ROYAL SALUTE 21Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00403",
+    "name": "WHISKY CHIVAS REGAL 12Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00410",
+    "name": "WHISKY JACK DANIELS APPLE 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00408",
+    "name": "WHISKY JIM BEAM WHITE 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00404",
+    "name": "WHISKY BLACK LABEL 100CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00433",
+    "name": "WHISKY KAVALAN SINGLE MALT NO:1 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00427",
+    "name": "WHISKY CHITA JAPANESE 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00417",
+    "name": "WHISKY GLENMORANGİE 70CL 10Y",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00425",
+    "name": "WHISKY LAGAVULİN 70cl",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00431",
+    "name": "WHISKY RED LABEL GREEN 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00423",
+    "name": "WHISKY JAMESON BLACK BARREL 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00416",
+    "name": "WHISKY GLENMORAGE SIGNET 12Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00406",
+    "name": "WHISKY GLENLIVET 12 SINGLE 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00412",
+    "name": "WHISKY JACK DANIELS GENTLEMAN 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00863",
+    "name": "WHISKY JIM BEAM 1LT",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00848",
+    "name": "DİMPLE GOLDEN SELEC 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01128",
+    "name": "JACK DANELS 35CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01138",
+    "name": "GLENLIVET 18Y 70CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01153",
+    "name": "JAMESON 100CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01152",
+    "name": "BUSHMILLS 35CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01123",
+    "name": "CHIVAS REGAL 12Y 35CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01102",
+    "name": "JACK DANIELS 100CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST01122",
+    "name": "CHIVAS REGAL 12 Y.O 100CL",
+    "group": "WHISKY GRUBU",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00749",
+    "name": "YAĞ ZEYTİNYAĞI SIZMA LT",
+    "group": "YAĞLAR",
+    "unit": "1LT"
+  },
+  {
+    "code": "ST00785",
+    "name": "YAĞ FRİTA 18LT",
+    "group": "YAĞLAR",
+    "unit": "1LT"
+  },
+  {
+    "code": "ST00683",
+    "name": "YAĞ AYÇİÇEK 18 LT",
+    "group": "YAĞLAR",
+    "unit": "1LT"
+  }
+]
