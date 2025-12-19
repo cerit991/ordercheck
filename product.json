@@ -724,5 +724,209 @@
     "name": "S. PELLEGRINO 750ML *12",
     "group": "ELİF TURİZM ERİKLİ",
     "unit": "ADET"
+  },
+  {
+    "code": "ST00124",
+    "name": "DOMATES KOKTEYL",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00125",
+    "name": "MASKOLİN",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00126",
+    "name": "AKDENİZ YEŞİLLİKLERİ",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00127",
+    "name": "MARUL ICEBERG",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00128",
+    "name": "KUŞKONMAZ BAĞ",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00129",
+    "name": "SALATALIK",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00130",
+    "name": "FESLEĞEN",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00131",
+    "name": "AVAKADO İTHAL",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00132",
+    "name": "BİBER ÇARLİSTON",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00133",
+    "name": "DOMATES PEMBE",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00134",
+    "name": "LİME LİMON",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00135",
+    "name": "LİMON",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00136",
+    "name": "TURP FINDIK",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00137",
+    "name": "PANCAR KIRMIZI",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00138",
+    "name": "KEKİK",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00139",
+    "name": "ROZMARİN",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00140",
+    "name": "SOĞAN KIRMIZI",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00141",
+    "name": "KİVİ",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00142",
+    "name": "ERİK ANJELİKA",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00143",
+    "name": "MANGO",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00144",
+    "name": "MARUL KIVIRCIK",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00145",
+    "name": "PATLICAN",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00146",
+    "name": "PATATES TAZE",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00147",
+    "name": "BİBER KAPYA",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00148",
+    "name": "PIRASA",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00149",
+    "name": "BİBER DOLMA",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00150",
+    "name": "MİNİ PATATES",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00151",
+    "name": "MANDALİNA",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00152",
+    "name": "KEREVİZ KÖK",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00153",
+    "name": "ÜZÜM SİYAH",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00154",
+    "name": "FRENK SOĞAN ŞİNİKLAV",
+    "group": "MANAV",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00155",
+    "name": "ELMA GRANSİMİT",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00156",
+    "name": "HAVUÇ TAKOZ",
+    "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00157",
+    "name": "ISPANAK",
+    "group": "MANAV",
+    "unit": "KG"
   }
 ]
