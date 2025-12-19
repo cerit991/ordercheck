@@ -427,7 +427,7 @@
     <div class="header">
       <div class="header-content">
         <h1>Admin Paneli</h1>
-        <p class="subtitle">Urun ve kategori yonetimi</p>
+        <p class="subtitle">Urun ve firma yonetimi</p>
       </div>
       <button id="logoutBtn" class="secondary" hidden>Cikis Yap</button>
     </div>
@@ -451,12 +451,12 @@
       <div class="grid">
         <div class="card">
           <form id="categoryForm">
-            <h2>Kategori Olustur</h2>
+            <h2>Firma Olustur</h2>
             <div class="form-group">
-              <label for="categoryName">Kategori Adi</label>
-              <input type="text" id="categoryName" placeholder="ORN: ICECEKLER" required />
+              <label for="categoryName">Firma Adi</label>
+              <input type="text" id="categoryName" placeholder="" required />
             </div>
-            <button type="submit" class="primary">Kategori Ekle</button>
+            <button type="submit" class="primary">Firma Ekle</button>
             <div class="chip-container" id="categoryList"></div>
           </form>
         </div>
@@ -469,7 +469,7 @@
               <input type="text" id="productName" placeholder="Urun adi girin" required />
             </div>
             <div class="form-group">
-              <label for="productCategory">Kategori</label>
+              <label for="productCategory">Firma</label>
               <select id="productCategory" required></select>
             </div>
             <div class="form-group">
@@ -587,7 +587,7 @@
       if (!filtered.length) {
         inventoryList.hidden = true;
         inventoryEmpty.hidden = false;
-        inventoryEmpty.textContent = normalizedActive ? 'Bu kategoride urun bulunamadi' : 'Listelenecek urun yok';
+        inventoryEmpty.textContent = normalizedActive ? 'Bu firmada urun bulunamadi' : 'Listelenecek urun yok';
         return;
       }
 
@@ -665,7 +665,7 @@
       if (!sorted.length) {
         const empty = document.createElement('option');
         empty.value = '';
-        empty.textContent = 'Kategori bulunamadi';
+        empty.textContent = 'Firma bulunamadi';
         empty.disabled = true;
         empty.selected = true;
         productCategory.appendChild(empty);
@@ -720,7 +720,7 @@
         if (normalized) {
           setActiveCategory(normalized, { force: true });
         }
-        showStatus('Kategori eklendi', 'success');
+        showStatus('Firma eklendi', 'success');
       } catch (error) {
         showStatus(error.message, 'error');
       }

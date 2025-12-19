@@ -25,7 +25,7 @@
   },
   {
     "code": "ST00006",
-    "name": "MASCARPONE ALBERTO DI CENTA 350 GR X12",
+    "name": "MASCARPONE ALBERTO DI CENTA 350 GR *12",
     "group": "OTS",
     "unit": "ADET"
   },
@@ -61,25 +61,25 @@
   },
   {
     "code": "ST00012",
-    "name": "RAMA KREMA SICAK UYGULAMA 1 KG X8",
+    "name": "RAMA KREMA SICAK UYGULAMA 1 KG *8",
     "group": "OTS",
     "unit": "ADET"
   },
   {
     "code": "ST00013",
-    "name": "SEBZE MIX DON 4X2.5 KG",
+    "name": "SEBZE MIX DON 4*2.5 KG",
     "group": "OTS",
     "unit": "ADET"
   },
   {
     "code": "ST00014",
-    "name": "SARAY TUZ 750 GR X30",
+    "name": "SARAY TUZ 750 GR *30",
     "group": "OTS",
     "unit": "ADET"
   },
   {
     "code": "ST00015",
-    "name": "FINE FOOD BEZEYLE 6X2.5 KG",
+    "name": "FINE FOOD BEZEYLE 6*2.5 KG",
     "group": "OTS",
     "unit": "ADET"
   },
@@ -115,7 +115,7 @@
   },
   {
     "code": "ST00021",
-    "name": "FROZENLIFE FAVORITE 9X18 PATATES 2.5 KG X5 PKT",
+    "name": "FROZENLIFE FAVORITE 9*18 PATATES 2.5 KG *5 PKT",
     "group": "OTS",
     "unit": "ADET"
   },
@@ -397,7 +397,7 @@
   },
   {
     "code": "ST00068",
-    "name": "JUMBO BOY COP POSETI 80X110 10X10 500 GR RENKLI",
+    "name": "JUMBO BOY COP POSETI 80*110 10*10 500 GR RENKLI",
     "group": "TEMIZLIK ÜRÜNLERI",
     "unit": "ADET"
   },
@@ -451,13 +451,13 @@
   },
   {
     "code": "ST00077",
-    "name": "HAVLU MİKROFİBER OVERLOKLU 20 LI PAKET 300 GR/M2 40X40 CM YEŞİL",
+    "name": "HAVLU MİKROFİBER OVERLOKLU 20 LI PAKET 300 GR/M2 40*40 CM YEŞİL",
     "group": "TEMIZLIK ÜRÜNLERI",
     "unit": "ADET"
   },
   {
     "code": "ST00078",
-    "name": "STREÇ FİLM SERA WRAMP 45X1500 METRE",
+    "name": "STREÇ FİLM SERA WRAMP 45*1500 METRE",
     "group": "TEMIZLIK ÜRÜNLERI",
     "unit": "ADET"
   },
@@ -679,7 +679,7 @@
   },
   {
     "code": "ST00116",
-    "name": "FINE FOOD BARBUNYA 4x2,5 KG",
+    "name": "FINE FOOD BARBUNYA 4*2,5 KG",
     "group": "OTS",
     "unit": "ADET"
   },
@@ -927,6 +927,156 @@
     "code": "ST00157",
     "name": "ISPANAK",
     "group": "MANAV",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00158",
+    "name": "ABSOLUT VODKA 12/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00159",
+    "name": "CHIVAS REGAL 12 YO 12/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00160",
+    "name": "BEEFEATER PINK GIN 6/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00161",
+    "name": "MALFY GIN ROSA 6/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00162",
+    "name": "MALIBU 6/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00163",
+    "name": "JAMESON 6/100 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00164",
+    "name": "ABSOLUT VODKA 12/100 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00165",
+    "name": "MALFY GIN ORIGINALE 6/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00166",
+    "name": "LILLET BLANC 6/75 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00167",
+    "name": "BEEFEATER GIN 12/100 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00168",
+    "name": "MALIBU 6/100 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00169",
+    "name": "KAHLUA 6/70 CL SPAIN",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00170",
+    "name": "OLMECA SILVER 6/100 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00171",
+    "name": "ABERLOUR 16 YO 3/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00172",
+    "name": "HAVANA CLB ANEJO 3 ANOS 6/70CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00173",
+    "name": "CHIVAS 18 YO 6/70 CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00174",
+    "name": "CHUVAS REGAL 12 YO 12/100CL",
+    "group": "PERNO BIRPA TOPRAK DAĞITIM",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00175",
+    "name": "1/8 MİNİ BAGET KEPEKLI 56x100x35 GR 1/8 MİNİ",
+    "group": "ISPAŞ ISPATRA GIDA LALORRAİNE",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00176",
+    "name": "1/8 MİNİ BAGET BEYAZ 56x180x35 GR RO 1/8 MİNİ",
+    "group": "ISPAŞ ISPATRA GIDA LALORRAİNE",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00178",
+    "name": "TAZE DANA BONFİLE",
+    "group": "KASAP ATILGAN ŞAHİN",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00179",
+    "name": "DANA ANTRİKOT",
+    "group": "KASAP ATILGAN ŞAHİN",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00180",
+    "name": "KUZU İNCİK",
+    "group": "KASAP ATILGAN ŞAHİN",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00181",
+    "name": "KUZU KOL KEMİKSİZ",
+    "group": "KASAP ATILGAN ŞAHİN",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00182",
+    "name": "SUCUK",
+    "group": "KASAP ATILGAN ŞAHİN",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00183",
+    "name": "KUZU KALEM PİRZOLA",
+    "group": "KASAP ATILGAN ŞAHİN",
     "unit": "KG"
   }
 ]
