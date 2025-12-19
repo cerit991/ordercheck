@@ -1,5 +1,6 @@
 const PDFDocument = require('pdfkit');
 const path = require('path');
+const { formatSelectedCategories } = require('./utils');
 
 const FONT_NAME = 'DejaVuSans';
 const FONT_PATH = path.join(__dirname, '..', 'font', 'DejaVuSans.ttf');
@@ -22,6 +23,7 @@ const COLORS = {
 };
 
 const buildTextBody = ({ requester, department, items }) => {
+  const categorySummary = formatSelectedCategories(items);
   const lines = [
     'Merhaba,',
     '',
@@ -29,8 +31,9 @@ const buildTextBody = ({ requester, department, items }) => {
     '',
     `Siparişi Oluşturan: ${requester}`,
     `Departman: ${department}`,
+    `Firma: ${categorySummary}`,
     '',
-    ...items.map((item, index) => `${index + 1}. ${item.name} - ${item.quantity} ${item.unit}`),
+    ...items.map((item, index) => `${index + 1}. ${item.name} --- ${item.quantity} ${item.unit}`),
     '',
     `Toplam Kalem: ${items.length}`,
     '',
@@ -42,6 +45,8 @@ const buildTextBody = ({ requester, department, items }) => {
 const drawPdfContent = (doc, { requester, department, items }) => {
   const pageWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
   const startX = doc.page.margins.left;
+  const categorySummary = formatSelectedCategories(items);
+  const createdAt = new Date();
 
   const headerHeight = 45;
   doc.rect(startX, doc.y, pageWidth, headerHeight).fill(COLORS.titleBg);
@@ -64,25 +69,25 @@ const drawPdfContent = (doc, { requester, department, items }) => {
 
   const infoStartY = doc.y;
   const infoHeight = 50;
-  const infoCellWidth = pageWidth / 3;
+  const infoCells = [
+    { label: 'Siparisi Olusturan', value: requester },
+    { label: 'Departman', value: department },
+    { label: 'Firma', value: categorySummary },
+    { label: 'Tarih', value: createdAt.toLocaleDateString('tr-TR') },
+  ];
+  const infoCellWidth = pageWidth / infoCells.length;
 
   doc.rect(startX, infoStartY, pageWidth, infoHeight).fill(COLORS.infoBg);
 
   doc.strokeColor(COLORS.border).lineWidth(1);
-  doc.moveTo(startX + infoCellWidth, infoStartY)
-    .lineTo(startX + infoCellWidth, infoStartY + infoHeight)
-    .stroke();
-  doc.moveTo(startX + infoCellWidth * 2, infoStartY)
-    .lineTo(startX + infoCellWidth * 2, infoStartY + infoHeight)
-    .stroke();
+  for (let i = 1; i < infoCells.length; i += 1) {
+    const x = startX + infoCellWidth * i;
+    doc.moveTo(x, infoStartY)
+      .lineTo(x, infoStartY + infoHeight)
+      .stroke();
+  }
 
   doc.rect(startX, infoStartY, pageWidth, infoHeight).stroke();
-
-  const infoCells = [
-    { label: 'Siparisi Olusturan', value: requester },
-    { label: 'Departman', value: department },
-    { label: 'Tarih', value: new Date().toLocaleDateString('tr-TR') },
-  ];
 
   infoCells.forEach((cell, index) => {
     const cellX = startX + (infoCellWidth * index) + 8;
@@ -100,7 +105,7 @@ const drawPdfContent = (doc, { requester, department, items }) => {
   const columns = [
     { header: 'No', width: 40, align: 'center' },
     { header: 'Urun Adi', width: 220, align: 'left' },
-    { header: 'Grup', width: 140, align: 'left' },
+    { header: 'Firma', width: 140, align: 'left' },
     { header: 'Miktar', width: 70, align: 'right' },
     { header: 'Birim', width: pageWidth - 40 - 220 - 140 - 70, align: 'center' },
   ];
@@ -255,7 +260,7 @@ const drawPdfContent = (doc, { requester, department, items }) => {
     .fillColor(COLORS.textSecondary)
     .text(
       'Bu dokuman sistem tarafindan otomatik olarak olusturulmustur. | ' +
-        `Olusturulma: ${new Date().toLocaleString('tr-TR')}`,
+        `Olusturulma: ${createdAt.toLocaleString('tr-TR')}`,
       startX,
       doc.y,
       { width: pageWidth, align: 'center' },

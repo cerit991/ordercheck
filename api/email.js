@@ -1,25 +1,11 @@
 const fs = require('fs/promises');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const { parseJsonBody } = require('./utils');
+const { parseJsonBody, normalizeForFilename, formatSelectedCategories } = require('./utils');
 const { generatePdfBuffer, buildTextBody } = require('./pdfGenerator');
 
 let cachedTransporter = null;
 const ORDERS_DIR = path.join(__dirname, '..', 'orders');
-
-const normalizeForFilename = (value) => {
-  if (!value) {
-    return 'genel';
-  }
-
-  return value
-    .toString()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .toLowerCase() || 'genel';
-};
 
 const persistOrderAsText = async ({ requester, department, items, sentAt }) => {
   const orderId = sentAt.getTime().toString(36);
@@ -27,17 +13,19 @@ const persistOrderAsText = async ({ requester, department, items, sentAt }) => {
   const safeDepartment = normalizeForFilename(department);
   const fileName = `siparis-${orderId}-${safeDepartment}-${datePart}.txt`;
   const filePath = path.join(ORDERS_DIR, fileName);
+  const categorySummary = formatSelectedCategories(items);
 
   const lines = [
     `Siparis ID: ${orderId}`,
     `Olusturulma: ${sentAt.toLocaleString('tr-TR')}`,
     `Departman: ${department}`,
+    `Firma: ${categorySummary}`,
     `Siparisi Olusturan: ${requester}`,
     '',
     'Kalem Listesi:',
     ...items.map((item, index) => {
       const groupSuffix = item.group ? ` (${item.group})` : '';
-      return `${index + 1}. ${item.name}${groupSuffix} - ${item.quantity} ${item.unit}`;
+      return `${index + 1}. ${item.name}${groupSuffix} --- ${item.quantity} ${item.unit}`;
     }),
     '',
     `Toplam Kalem: ${items.length}`,
@@ -103,8 +91,9 @@ module.exports = async (req, res) => {
 
     const transporter = getTransporter();
 
-    const safeRequester = requester.replace(/[^a-z0-9\-]+/gi, '-');
-    const attachmentName = `siparis-${safeRequester || 'talep'}.pdf`;
+    const safeRequester = normalizeForFilename(requester);
+    const safeDepartment = normalizeForFilename(department);
+    const attachmentName = `${safeRequester}-${safeDepartment}.pdf`;
 
     await transporter.sendMail({
       from: senderEmail,

@@ -1,4 +1,4 @@
-const { parseJsonBody } = require('./utils');
+const { parseJsonBody, normalizeForFilename } = require('./utils');
 const { generatePdfBuffer } = require('./pdfGenerator');
 
 module.exports = async (req, res) => {
@@ -13,10 +13,13 @@ module.exports = async (req, res) => {
     }
 
     const pdfBuffer = await generatePdfBuffer({ requester, department, items });
+    const safeRequester = normalizeForFilename(requester);
+    const safeDepartment = normalizeForFilename(department);
+    const pdfFilename = `${safeRequester}-${safeDepartment}.pdf`;
 
     res.writeHead(200, {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'inline; filename="siparis.pdf"',
+      'Content-Disposition': `inline; filename="${pdfFilename}"`,
       'Content-Length': pdfBuffer.length,
     });
 

@@ -3,6 +3,10 @@ const productsHandler = require('./products');
 const pdfHandler = require('./pdf');
 const settingsHandler = require('./settings');
 const emailHandler = require('./email');
+const adminLoginHandler = require('./admin/login');
+const adminLogoutHandler = require('./admin/logout');
+const adminCategoriesHandler = require('./admin/categories');
+const adminProductsHandler = require('./admin/products');
 
 module.exports = (req, res) => {
   const base = `http://${req.headers.host || 'localhost'}`;
@@ -25,6 +29,26 @@ module.exports = (req, res) => {
 
   if (pathname === '/api/settings' && req.method === 'GET') {
     settingsHandler(req, res);
+    return;
+  }
+
+  if (pathname === '/api/admin/login') {
+    adminLoginHandler(req, res);
+    return;
+  }
+
+  if (pathname === '/api/admin/logout') {
+    adminLogoutHandler(req, res);
+    return;
+  }
+
+  if (pathname === '/api/admin/categories') {
+    adminCategoriesHandler(req, res);
+    return;
+  }
+
+  if (pathname === '/api/admin/products') {
+    adminProductsHandler(req, res);
     return;
   }
 

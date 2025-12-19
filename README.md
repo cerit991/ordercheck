@@ -17,6 +17,7 @@ Bu proje, restoran satın alma süreçlerinde ürün taleplerini toplamak ve PDF
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=465
    SMTP_SECURE=true
+   ADMIN_PASSWORD=guclu-bir-sifre
    ```
 3. Windows'ta `start-order-app.bat` dosyasını çalıştırın. Script gerekli bağımlılıkları yükler, sunucuyu başlatır ve tarayıcıyı doğru adrese yönlendirir.
 
@@ -38,3 +39,12 @@ Uygulama varsayılan olarak `http://localhost:3000/` adresinde çalışır.
 - Önce ürünleri listeden seçin, miktarları girin ve PDF ön izlemesini açın.
 - `Mail Gönder` butonu, `.env` dosyasındaki SMTP bilgilerini kullanarak PDF'yi ekli halde gönderir.
 - Gönderilen her sipariş `orders/` klasörüne tarih ve departman bilgisiyle `.txt` dosyası olarak kaydedilir (git'e dahil edilmez).
+
+## Admin Paneli
+
+- Yönetici arayüzü `http://localhost:3000/admin.html` adresinden erişilebilir.
+- Giriş yapabilmek için `.env` içerisindeki `ADMIN_PASSWORD` değeri gereklidir.
+- Panel üzerinden:
+   - Yeni kategoriler oluşturulabilir.
+   - Mevcut kategorilere bağlı ürünler (ADET/KG/LT) eklenebilir; stok kodu otomatik olarak `ST0xxxx` formatında atanır.
+   - Ürün kodu ile kayıtlı ürünler silinebilir.

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Paneli</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      color-scheme: dark;
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #141824;
+      --bg-tertiary: #1a1f2e;
+      --card-bg: rgba(26, 31, 46, 0.7);
+      --card-hover: rgba(30, 35, 50, 0.9);
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --accent-light: rgba(59, 130, 246, 0.1);
+      --success: #10b981;
+      --success-light: rgba(16, 185, 129, 0.1);
+      --danger: #ef4444;
+      --danger-light: rgba(239, 68, 68, 0.1);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: rgba(148, 163, 184, 0.1);
+      --border-hover: rgba(148, 163, 184, 0.2);
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .panel {
+      width: min(1200px, 100%);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--text-primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card:hover {
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow-md);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    input, select {
+      font: inherit;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+      background: var(--bg-secondary);
+    }
+
+    input::placeholder {
+      color: var(--text-muted);
+    }
+
+    button {
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      border-radius: 12px;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    button.primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    button.primary:active {
+      transform: translateY(0);
+    }
+
+    button.secondary {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+    }
+
+    button.secondary:hover {
+      background: var(--bg-tertiary);
+      border-color: var(--border-hover);
+    }
+
+    button.danger {
+      background: var(--danger);
+      color: white;
+      box-shadow: var(--shadow-sm);
+    }
+
+    button.danger:hover {
+      background: #dc2626;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .status {
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+      border: 1px solid;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .status::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .status.success {
+      background: var(--success-light);
+      border-color: var(--success);
+      color: var(--success);
+    }
+
+    .status.success::before {
+      background: var(--success);
+      box-shadow: 0 0 8px var(--success);
+    }
+
+    .status.error {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .status.error::before {
+      background: var(--danger);
+      box-shadow: 0 0 8px var(--danger);
+    }
+
+    .chip-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .chip:hover {
+      background: var(--card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .chip:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .chip.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+      box-shadow: 0 0 12px var(--accent-light);
+    }
+
+    .inventory-section {
+      margin-top: 1rem;
+    }
+
+    .inventory-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .inventory-badge {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .inventory-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .inventory-item {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .inventory-item:hover {
+      border-color: var(--accent);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .inventory-item.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .inventory-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .inventory-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .inventory-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .inventory-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .warning-text {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .warning-text::before {
+      content: '⚠️';
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .panel {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .inventory-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <div class="header">
+      <div class="header-content">
+        <h1>Admin Paneli</h1>
+        <p class="subtitle">Urun ve kategori yonetimi</p>
+      </div>
+      <button id="logoutBtn" class="secondary" hidden>Cikis Yap</button>
+    </div>
+
+    <section id="status" class="status" hidden></section>
+
+    <section id="loginSection">
+      <div class="card">
+        <form id="loginForm">
+          <h2>Yonetici Girisi</h2>
+          <div class="form-group">
+            <label for="password">Sifre</label>
+            <input type="password" id="password" placeholder="Yonetici sifrenizi girin" required autocomplete="current-password" />
+          </div>
+          <button type="submit" class="primary">Giris Yap</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="adminSection" hidden>
+      <div class="grid">
+        <div class="card">
+          <form id="categoryForm">
+            <h2>Kategori Olustur</h2>
+            <div class="form-group">
+              <label for="categoryName">Kategori Adi</label>
+              <input type="text" id="categoryName" placeholder="ORN: ICECEKLER" required />
+            </div>
+            <button type="submit" class="primary">Kategori Ekle</button>
+            <div class="chip-container" id="categoryList"></div>
+          </form>
+        </div>
+
+        <div class="card">
+          <form id="productForm">
+            <h2>Urun Ekle</h2>
+            <div class="form-group">
+              <label for="productName">Urun Adi</label>
+              <input type="text" id="productName" placeholder="Urun adi girin" required />
+            </div>
+            <div class="form-group">
+              <label for="productCategory">Kategori</label>
+              <select id="productCategory" required></select>
+            </div>
+            <div class="form-group">
+              <label for="productUnit">Birim</label>
+              <select id="productUnit" required>
+                <option value="ADET">ADET</option>
+                <option value="KG">KG</option>
+                <option value="LT">LT</option>
+              </select>
+            </div>
+            <button type="submit" class="primary">Urun Ekle</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <form id="deleteForm">
+            <h2>Urun Sil</h2>
+            <div class="form-group">
+              <label for="deleteCode">Urun Kodu</label>
+              <input type="text" id="deleteCode" placeholder="Silinecek urun kodunu girin" required />
+            </div>
+            <button type="submit" class="danger">Urunu Sil</button>
+            <p class="warning-text">Silme islemi geri alinamaz</p>
+          </form>
+        </div>
+      </div>
+
+      <section class="inventory-section">
+        <div class="card">
+          <div class="inventory-header">
+            <h2>Urun Listesi</h2>
+            <span id="inventoryStatus" class="inventory-badge">Tum urunler</span>
+          </div>
+          <ul id="inventoryList" class="inventory-list"></ul>
+          <p id="inventoryEmpty" class="inventory-empty" hidden>Listelenecek urun yok</p>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <script>
+    const statusBox = document.getElementById('status');
+    const loginSection = document.getElementById('loginSection');
+    const adminSection = document.getElementById('adminSection');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const categoryList = document.getElementById('categoryList');
+    const productCategory = document.getElementById('productCategory');
+    const inventoryList = document.getElementById('inventoryList');
+    const inventoryEmpty = document.getElementById('inventoryEmpty');
+    const inventoryStatus = document.getElementById('inventoryStatus');
+    const deleteCodeInput = document.getElementById('deleteCode');
+
+    let productsData = [];
+    let activeCategory = null;
+    let selectedProductCode = null;
+
+    const showStatus = (message, tone = 'info') => {
+      statusBox.textContent = message;
+      statusBox.hidden = false;
+      statusBox.className = `status ${tone === 'error' ? 'error' : tone === 'success' ? 'success' : ''}`;
+      if (tone === 'success') {
+        setTimeout(() => {
+          statusBox.hidden = true;
+        }, 4000);
+      }
+    };
+
+    const clearStatus = () => {
+      statusBox.hidden = true;
+      statusBox.textContent = '';
+      statusBox.className = 'status';
+    };
+
+    const request = async (url, options = {}) => {
+      const headers = { ...(options.headers || {}) };
+      const config = {
+        credentials: 'include',
+        ...options,
+        headers,
+      };
+      if (config.body && typeof config.body !== 'string') {
+        config.body = JSON.stringify(config.body);
+        config.headers['Content-Type'] = 'application/json';
+      }
+
+      const response = await fetch(url, config);
+      const isJson = response.headers.get('content-type')?.includes('application/json');
+      const payload = isJson ? await response.json() : {};
+      if (!response.ok) {
+        const message = payload?.message || 'Beklenmedik hata';
+        throw new Error(message);
+      }
+      return payload;
+    };
+
+    const updateCategoryChips = () => {
+      const chips = categoryList.querySelectorAll('.chip');
+      chips.forEach((chip) => {
+        chip.classList.toggle('active', chip.dataset.category === activeCategory);
+      });
+    };
+
+    const renderProducts = () => {
+      const list = Array.isArray(productsData) ? productsData.slice() : [];
+      const normalizedActive = activeCategory || null;
+      const filtered = normalizedActive
+        ? list.filter((product) => (product.group || '').toUpperCase() === normalizedActive)
+        : list;
+
+      filtered.sort((a, b) => a.name.localeCompare(b.name, 'tr-TR'));
+
+      inventoryList.innerHTML = '';
+      inventoryStatus.textContent = normalizedActive ? normalizedActive : 'Tum urunler';
+
+      if (!filtered.length) {
+        inventoryList.hidden = true;
+        inventoryEmpty.hidden = false;
+        inventoryEmpty.textContent = normalizedActive ? 'Bu kategoride urun bulunamadi' : 'Listelenecek urun yok';
+        return;
+      }
+
+      inventoryList.hidden = false;
+      inventoryEmpty.hidden = true;
+
+      filtered.forEach((product) => {
+        const item = document.createElement('li');
+        item.className = 'inventory-item';
+        if (product.code === selectedProductCode) {
+          item.classList.add('selected');
+        }
+
+        const name = document.createElement('span');
+        name.className = 'inventory-name';
+        name.textContent = product.name;
+
+        const meta = document.createElement('span');
+        meta.className = 'inventory-meta';
+        const groupLabel = product.group || 'GENEL';
+        meta.innerHTML = `<span>🏷️ ${product.code}</span> <span>📁 ${groupLabel}</span> <span>📦 ${product.unit}</span>`;
+
+        item.appendChild(name);
+        item.appendChild(meta);
+
+        item.addEventListener('click', () => {
+          selectedProductCode = product.code;
+          deleteCodeInput.value = product.code;
+          deleteCodeInput.focus();
+          deleteCodeInput.select();
+          renderProducts();
+        });
+
+        inventoryList.appendChild(item);
+      });
+    };
+
+    const setActiveCategory = (name, options = {}) => {
+      const { force = false } = options;
+      if (!force && name === activeCategory) {
+        activeCategory = null;
+      } else {
+        activeCategory = name;
+      }
+      updateCategoryChips();
+      renderProducts();
+    };
+
+    const renderCategories = (categories = []) => {
+      const sorted = categories.slice().sort();
+      categoryList.innerHTML = '';
+      productCategory.innerHTML = '';
+
+      sorted.forEach((name) => {
+        const chip = document.createElement('span');
+        chip.className = 'chip';
+        chip.textContent = name;
+        chip.tabIndex = 0;
+        chip.dataset.category = name;
+        chip.addEventListener('click', () => setActiveCategory(name));
+        chip.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setActiveCategory(name);
+          }
+        });
+        categoryList.appendChild(chip);
+
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = name;
+        productCategory.appendChild(option);
+      });
+
+      if (!sorted.length) {
+        const empty = document.createElement('option');
+        empty.value = '';
+        empty.textContent = 'Kategori bulunamadi';
+        empty.disabled = true;
+        empty.selected = true;
+        productCategory.appendChild(empty);
+        activeCategory = null;
+      } else if (activeCategory && !sorted.includes(activeCategory)) {
+        activeCategory = null;
+      }
+
+      updateCategoryChips();
+      renderProducts();
+    };
+
+    const loadCategories = async () => {
+      const data = await request('/api/admin/categories');
+      renderCategories(data.categories || []);
+    };
+
+    const loadProducts = async () => {
+      const data = await request('/api/products');
+      productsData = Array.isArray(data) ? data : [];
+      renderProducts();
+    };
+
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus();
+      const password = document.getElementById('password').value;
+      try {
+        await request('/api/admin/login', { method: 'POST', body: { password } });
+        document.getElementById('password').value = '';
+        loginSection.hidden = true;
+        adminSection.hidden = false;
+        logoutBtn.hidden = false;
+        showStatus('Giris basarili', 'success');
+        await loadCategories();
+        await loadProducts();
+      } catch (error) {
+        showStatus(error.message, 'error');
+      }
+    });
+
+    document.getElementById('categoryForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus();
+      const nameInput = document.getElementById('categoryName');
+      const name = nameInput.value;
+      try {
+        const result = await request('/api/admin/categories', { method: 'POST', body: { name } });
+        nameInput.value = '';
+        renderCategories(result.categories || []);
+        const normalized = (name || '').trim().toUpperCase();
+        if (normalized) {
+          setActiveCategory(normalized, { force: true });
+        }
+        showStatus('Kategori eklendi', 'success');
+      } catch (error) {
+        showStatus(error.message, 'error');
+      }
+    });
+
+    document.getElementById('productForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus();
+      const form = document.getElementById('productForm');
+      const body = {
+        name: document.getElementById('productName').value,
+        group: document.getElementById('productCategory').value,
+        unit: document.getElementById('productUnit').value,
+      };
+      try {
+        const result = await request('/api/admin/products', { method: 'POST', body });
+        const product = result.product || null;
+        selectedProductCode = product?.code || null;
+        form.reset();
+        if (product?.group) {
+          const option = productCategory.querySelector(`option[value="${product.group}"]`);
+          if (option) {
+            productCategory.value = product.group;
+          }
+        }
+        await loadProducts();
+        if (product?.group) {
+          setActiveCategory(product.group, { force: true });
+        }
+        showStatus(`Urun eklendi (${product?.code || 'kod yok'})`, 'success');
+      } catch (error) {
+        showStatus(error.message, 'error');
+      }
+    });
+
+    document.getElementById('deleteForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus();
+      const code = deleteCodeInput.value;
+      try {
+        await request('/api/admin/products', { method: 'DELETE', body: { code } });
+        deleteCodeInput.value = '';
+        selectedProductCode = null;
+        await loadProducts();
+        showStatus('Urun silindi', 'success');
+      } catch (error) {
+        showStatus(error.message, 'error');
+      }
+    });
+
+    logoutBtn.addEventListener('click', async () => {
+      clearStatus();
+      try {
+        await request('/api/admin/logout', { method: 'POST' });
+      } catch (error) {
+        showStatus(error.message, 'error');
+        return;
+      }
+      productsData = [];
+      selectedProductCode = null;
+      activeCategory = null;
+      renderCategories([]);
+      loginSection.hidden = false;
+      adminSection.hidden = true;
+      logoutBtn.hidden = true;
+      showStatus('Oturum kapatildi', 'success');
+    });
+
+    const bootstrap = async () => {
+      try {
+        await loadCategories();
+        await loadProducts();
+        loginSection.hidden = true;
+        adminSection.hidden = false;
+        logoutBtn.hidden = false;
+        showStatus('Oturum dogrulandi', 'success');
+      } catch (error) {
+        console.info('Admin oturumu acik degil:', error.message);
+      }
+    };
+
+    bootstrap();
+  </script>
+</body>
+</html>
