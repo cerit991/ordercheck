@@ -260,8 +260,8 @@
 
             .selected-table th:nth-child(1),
             .selected-table td:nth-child(1),
-            .selected-table th:nth-child(3),
-            .selected-table td:nth-child(3) {
+            .selected-table th:nth-child(4),
+            .selected-table td:nth-child(4) {
                 display: none;
             }
 
@@ -370,11 +370,6 @@
 
             .product-table th:nth-child(3),
             .product-table td:nth-child(3) {
-                display: none;
-            }
-
-            .selected-table th:nth-child(5),
-            .selected-table td:nth-child(5) {
                 display: none;
             }
 
@@ -873,10 +868,6 @@
             color: var(--text-primary);
         }
 
-        .selected-table .item-group {
-            color: var(--text-secondary);
-        }
-
         .selected-table .item-quantity {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
@@ -1291,7 +1282,6 @@
                         <tr>
                             <th>No</th>
                             <th>Ürün</th>
-                            <th>Firma</th>
                             <th>Miktar</th>
                             <th>Birim</th>
                             <th>İşlem</th>
@@ -1550,7 +1540,7 @@
             if (!hasItems) {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td colspan="6">
+                    <td colspan="5">
                         <div class="empty-state">
                             <div class="empty-state-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -1571,7 +1561,6 @@
                 row.innerHTML = `
                     <td><span class="row-number">${rowIndex + 1}</span></td>
                     <td class="item-name">${value.name}</td>
-                    <td class="item-group">${value.group}</td>
                     <td><span class="item-quantity">${value.quantity}</span></td>
                     <td class="item-unit">${value.unit}</td>
                     <td>
@@ -1607,7 +1596,7 @@
         const openModal = (product) => {
             state.activeProduct = product;
             modalProductName.textContent = product.name;
-            modalProductCode.textContent = product.group;
+            modalProductCode.textContent = product.code ? `Kod: ${product.code}` : '';
             modalUnitInput.value = product.unit;
             modalQuantityInput.value = Number.isFinite(product.quantity) ? product.quantity : '';
             modal.classList.add('active');
