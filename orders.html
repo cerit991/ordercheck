@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gecmis Siparisler</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-primary: #0a0e1a;
+      --bg-secondary: #141824;
+      --card-bg: rgba(26, 31, 46, 0.75);
+      --card-border: rgba(148, 163, 184, 0.15);
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.12);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --danger: #ef4444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      background-image:
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 55%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 55%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .layout {
+      width: min(1100px, 100%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--text-primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hint {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: transparent;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a.button:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .status {
+      padding: 0.85rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(148, 163, 184, 0.08);
+      font-size: 0.9rem;
+    }
+
+    .status.error {
+      border-color: rgba(239, 68, 68, 0.6);
+      color: var(--danger);
+      background: rgba(239, 68, 68, 0.08);
+    }
+
+    .orders {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .order-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: 1.35rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .order-card:hover {
+      border-color: var(--accent);
+    }
+
+    .order-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .order-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      min-width: 200px;
+    }
+
+    .order-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .order-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .meta-label {
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    details {
+      background: rgba(15, 23, 42, 0.35);
+      border-radius: 12px;
+      border: 1px solid rgba(30, 41, 59, 0.6);
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    details pre {
+      margin-top: 0.75rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+      background: rgba(15, 23, 42, 0.55);
+      padding: 0.75rem;
+      border-radius: 10px;
+      color: var(--text-secondary);
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .download:hover {
+      border-color: var(--accent);
+    }
+
+    .empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      border: 1px dashed rgba(148, 163, 184, 0.25);
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1.25rem;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      a.button {
+        align-self: stretch;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="layout">
+    <header>
+      <div>
+        <h1>Gecmis Siparisler</h1>
+        <p class="hint">PDF olarak gonderilen siparis kayitlari</p>
+      </div>
+      <a class="button" href="admin.html">Panele Don</a>
+    </header>
+
+    <section id="status" class="status" hidden></section>
+
+    <section id="orders" class="orders"></section>
+  </main>
+
+  <script>
+    const statusBox = document.getElementById('status');
+    const ordersContainer = document.getElementById('orders');
+
+    const formatDate = (value) => {
+      if (!value) {
+        return '-';
+      }
+      const formatter = new Intl.DateTimeFormat('tr-TR', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      });
+      try {
+        return formatter.format(new Date(value));
+      } catch (error) {
+        return value;
+      }
+    };
+
+    const formatDateWithWeekday = (value) => {
+      if (!value) {
+        return '';
+      }
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) {
+        return '';
+      }
+      try {
+        return new Intl.DateTimeFormat('tr-TR', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+        }).format(date);
+      } catch (error) {
+        return '';
+      }
+    };
+
+    const formatSize = (bytes) => {
+      if (!Number.isFinite(bytes) || bytes < 0) {
+        return '-';
+      }
+      if (bytes < 1024) {
+        return `${bytes} B`;
+      }
+      const kb = bytes / 1024;
+      if (kb < 1024) {
+        return `${kb.toFixed(1)} KB`;
+      }
+      const mb = kb / 1024;
+      return `${mb.toFixed(1)} MB`;
+    };
+
+    const setStatus = (message, tone = 'info') => {
+      statusBox.textContent = message;
+      statusBox.hidden = false;
+      statusBox.className = `status ${tone === 'error' ? 'error' : ''}`;
+    };
+
+    const clearStatus = () => {
+      statusBox.hidden = true;
+      statusBox.textContent = '';
+      statusBox.className = 'status';
+    };
+
+    const renderOrders = (orders) => {
+      ordersContainer.innerHTML = '';
+
+      if (!Array.isArray(orders) || !orders.length) {
+        const empty = document.createElement('div');
+        empty.className = 'empty';
+        empty.textContent = 'Kayitli siparis bulunamadi.';
+        ordersContainer.appendChild(empty);
+        return;
+      }
+
+      orders.forEach((order) => {
+        const card = document.createElement('article');
+        card.className = 'order-card';
+
+        const head = document.createElement('div');
+        head.className = 'order-head';
+
+        const titleWrapper = document.createElement('div');
+        titleWrapper.className = 'order-title';
+
+        const metadata = order.metadata || {};
+        const displayTitle = metadata.company || metadata.department || order.name;
+
+        const title = document.createElement('h2');
+        title.textContent = displayTitle;
+        titleWrapper.appendChild(title);
+
+        const subtitleParts = [];
+        const displayDate = formatDateWithWeekday(order.modifiedAt || order.createdAt);
+        if (displayDate) {
+          subtitleParts.push(displayDate);
+        }
+        if (metadata.department) {
+          subtitleParts.push(metadata.department);
+        }
+        if (metadata.requester) {
+          subtitleParts.push(metadata.requester);
+        }
+
+        if (subtitleParts.length) {
+          const subtitle = document.createElement('p');
+          subtitle.className = 'order-subtitle';
+          subtitle.textContent = subtitleParts.join(' • ');
+          titleWrapper.appendChild(subtitle);
+        }
+
+        head.appendChild(titleWrapper);
+
+        const link = document.createElement('a');
+        link.className = 'download';
+        link.href = `orders/${encodeURIComponent(order.name)}`;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = 'Dosyayi ac';
+        head.appendChild(link);
+
+        card.appendChild(head);
+
+        const meta = document.createElement('div');
+        meta.className = 'order-meta';
+
+        const appendMeta = (label, value) => {
+          if (!value) {
+            return;
+          }
+          const item = document.createElement('div');
+          item.className = 'meta-item';
+          item.innerHTML = `<span class="meta-label">${label}</span><span>${value}</span>`;
+          meta.appendChild(item);
+        };
+
+        appendMeta('Firma', metadata.company);
+        appendMeta('Departman', metadata.department);
+        appendMeta('Talep Eden', metadata.requester);
+        appendMeta('Siparis ID', metadata.orderId);
+        appendMeta('Olusturma', metadata.createdAtText || formatDate(order.createdAt));
+        appendMeta('Guncellenme', formatDate(order.modifiedAt));
+        appendMeta('Dosya Boyutu', formatSize(order.size));
+
+        card.appendChild(meta);
+
+        if (order.content) {
+          const preview = document.createElement('details');
+          preview.open = false;
+          const summary = document.createElement('summary');
+          summary.textContent = 'Icerigi goruntule';
+          const pre = document.createElement('pre');
+          pre.textContent = order.content;
+          preview.append(summary, pre);
+          card.appendChild(preview);
+        }
+
+        ordersContainer.appendChild(card);
+      });
+    };
+
+    const loadOrders = async () => {
+      setStatus('Siparisler yukleniyor...');
+      try {
+        const response = await fetch('/api/admin/orders', { credentials: 'include' });
+        if (response.status === 401) {
+          setStatus('Bu sayfaya erismek icin once yonetici paneline giris yapmalisiniz.', 'error');
+          ordersContainer.innerHTML = '';
+          return;
+        }
+        const payload = await response.json();
+        clearStatus();
+        renderOrders(payload.orders || []);
+      } catch (error) {
+        console.error('Orders load failed:', error);
+        setStatus('Siparisler yuklenemedi. Lutfen daha sonra tekrar deneyin.', 'error');
+        ordersContainer.innerHTML = '';
+      }
+    };
+
+    loadOrders();
+  </script>
+</body>
+</html>

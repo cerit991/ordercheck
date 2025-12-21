@@ -7,6 +7,7 @@ const adminLoginHandler = require('./admin/login');
 const adminLogoutHandler = require('./admin/logout');
 const adminCategoriesHandler = require('./admin/categories');
 const adminProductsHandler = require('./admin/products');
+const adminOrdersHandler = require('./admin/orders');
 
 module.exports = (req, res) => {
   const base = `http://${req.headers.host || 'localhost'}`;
@@ -49,6 +50,11 @@ module.exports = (req, res) => {
 
   if (pathname === '/api/admin/products') {
     adminProductsHandler(req, res);
+    return;
+  }
+
+  if (pathname === '/api/admin/orders') {
+    adminOrdersHandler(req, res);
     return;
   }
 

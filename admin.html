@@ -79,6 +79,14 @@
       gap: 0.5rem;
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
     h1 {
       font-size: 2rem;
       font-weight: 700;
@@ -429,7 +437,10 @@
         <h1>Admin Paneli</h1>
         <p class="subtitle">Urun ve firma yonetimi</p>
       </div>
-      <button id="logoutBtn" class="secondary" hidden>Cikis Yap</button>
+      <div class="header-actions">
+        <button id="viewOrdersBtn" class="primary" hidden>Gecmis Siparisler</button>
+        <button id="logoutBtn" class="secondary" hidden>Cikis Yap</button>
+      </div>
     </div>
 
     <section id="status" class="status" hidden></section>
@@ -515,6 +526,7 @@
     const loginSection = document.getElementById('loginSection');
     const adminSection = document.getElementById('adminSection');
     const logoutBtn = document.getElementById('logoutBtn');
+    const viewOrdersBtn = document.getElementById('viewOrdersBtn');
     const categoryList = document.getElementById('categoryList');
     const productCategory = document.getElementById('productCategory');
     const inventoryList = document.getElementById('inventoryList');
@@ -699,6 +711,7 @@
         loginSection.hidden = true;
         adminSection.hidden = false;
         logoutBtn.hidden = false;
+        viewOrdersBtn.hidden = false;
         showStatus('Giris basarili', 'success');
         await loadCategories();
         await loadProducts();
@@ -786,7 +799,12 @@
       loginSection.hidden = false;
       adminSection.hidden = true;
       logoutBtn.hidden = true;
+      viewOrdersBtn.hidden = true;
       showStatus('Oturum kapatildi', 'success');
+    });
+
+    viewOrdersBtn.addEventListener('click', () => {
+      window.open('orders.html', '_blank');
     });
 
     const bootstrap = async () => {
@@ -796,6 +814,7 @@
         loginSection.hidden = true;
         adminSection.hidden = false;
         logoutBtn.hidden = false;
+        viewOrdersBtn.hidden = false;
         showStatus('Oturum dogrulandi', 'success');
       } catch (error) {
         console.info('Admin oturumu acik degil:', error.message);
