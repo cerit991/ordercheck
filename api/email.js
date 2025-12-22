@@ -1,40 +1,21 @@
 const fs = require('fs/promises');
 const path = require('path');
 const nodemailer = require('nodemailer');
-const { parseJsonBody, normalizeForFilename, formatSelectedCategories } = require('./utils');
+const { parseJsonBody, normalizeForFilename } = require('./utils');
 const { generatePdfBuffer, buildTextBody } = require('./pdfGenerator');
+const { createOrderSnapshot } = require('./orderText');
 
 let cachedTransporter = null;
 const ORDERS_DIR = path.join(__dirname, '..', 'orders');
 
 const persistOrderAsText = async ({ requester, department, items, sentAt }) => {
-  const orderId = sentAt.getTime().toString(36);
-  const datePart = sentAt.toISOString().slice(0, 10);
-  const safeDepartment = normalizeForFilename(department);
-  const fileName = `siparis-${orderId}-${safeDepartment}-${datePart}.txt`;
-  const filePath = path.join(ORDERS_DIR, fileName);
-  const categorySummary = formatSelectedCategories(items);
-
-  const lines = [
-    `Siparis ID: ${orderId}`,
-    `Olusturulma: ${sentAt.toLocaleString('tr-TR')}`,
-    `Departman: ${department}`,
-    `Firma: ${categorySummary}`,
-    `Siparisi Olusturan: ${requester}`,
-    '',
-    'Kalem Listesi:',
-    ...items.map((item, index) => {
-      const groupSuffix = item.group ? ` (${item.group})` : '';
-      return `${index + 1}. ${item.name}${groupSuffix} --- ${item.quantity} ${item.unit}`;
-    }),
-    '',
-    `Toplam Kalem: ${items.length}`,
-  ];
+  const snapshot = createOrderSnapshot({ requester, department, items, sentAt });
+  const filePath = path.join(ORDERS_DIR, snapshot.fileName);
 
   await fs.mkdir(ORDERS_DIR, { recursive: true });
-  await fs.writeFile(filePath, `${lines.join('\n')}\n`, 'utf8');
+  await fs.writeFile(filePath, snapshot.content, 'utf8');
 
-  return { orderId, filePath };
+  return { orderId: snapshot.orderId, filePath };
 };
 
 const getTransporter = () => {

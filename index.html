@@ -1262,6 +1262,12 @@
                     </span>
                 </div>
                 <div class="header-actions">
+                    <button id="print-receipt" type="button" disabled class="btn btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3A2.25 2.25 0 0 0 4.5 5.25V9A2.25 2.25 0 0 0 6.75 11.25h10.5A2.25 2.25 0 0 0 19.5 9V5.25A2.25 2.25 0 0 0 17.25 3h-10.5ZM6 8.25a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0Zm2.25 13.5A2.25 2.25 0 0 1 6 19.5v-6A2.25 2.25 0 0 1 8.25 11.25h7.5A2.25 2.25 0 0 1 18 13.5v6a2.25 2.25 0 0 1-2.25 2.25h-7.5Z" />
+                        </svg>
+                        Yazıcı Fişi
+                    </button>
                     <button id="download-pdf" type="button" disabled class="btn btn-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
@@ -1365,6 +1371,7 @@
         const modalUnitInput = document.getElementById('modal-unit');
         const quantityForm = document.getElementById('quantity-form');
         const clearButton = document.getElementById('clear-items');
+        const printButton = document.getElementById('print-receipt');
         const downloadButton = document.getElementById('download-pdf');
         const requesterInput = document.getElementById('requester');
         const departmentSelect = document.getElementById('department');
@@ -1528,6 +1535,7 @@
             const hasItems = Boolean(state.selected.size);
             
             downloadButton.disabled = !hasItems;
+            printButton.disabled = !hasItems;
             
             // Update badge
             if (hasItems) {
@@ -1609,6 +1617,38 @@
             quantityForm.reset();
         };
 
+        const buildOrderPayload = () => {
+            if (!state.selected.size) {
+                return null;
+            }
+
+            const requester = requesterInput.value.trim();
+            if (!requester) {
+                requesterInput.focus();
+                return null;
+            }
+
+            const department = departmentSelect.value;
+            if (!department) {
+                departmentSelect.focus();
+                return null;
+            }
+
+            const items = Array.from(state.selected.values()).map((item) => ({
+                code: item.code,
+                name: item.name,
+                group: item.group,
+                unit: item.unit,
+                quantity: item.quantity,
+            }));
+
+            if (!items.length) {
+                return null;
+            }
+
+            return { requester, department, items };
+        };
+
         // PDF Functions
         const openPdfModal = (url) => {
             if (pdfObjectUrl) window.URL.revokeObjectURL(pdfObjectUrl);
@@ -1632,27 +1672,10 @@
 
         const downloadPdf = async () => {
             if (!state.selected.size) return;
-
-            const requester = requesterInput.value.trim();
-            const department = departmentSelect.value;
-
-            if (!requester) {
-                requesterInput.focus();
+            const payload = buildOrderPayload();
+            if (!payload) {
                 return;
             }
-
-            if (!department) {
-                departmentSelect.focus();
-                return;
-            }
-
-            const items = Array.from(state.selected.values()).map((item) => ({
-                code: item.code,
-                name: item.name,
-                group: item.group,
-                unit: item.unit,
-                quantity: item.quantity
-            }));
 
             const originalLabel = downloadButton.innerHTML;
             downloadButton.innerHTML = `
@@ -1666,14 +1689,14 @@
                 const response = await fetch('/api/orders/pdf', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ requester, department, items })
+                    body: JSON.stringify(payload)
                 });
 
                 if (!response.ok) throw new Error('PDF request failed');
 
                 const blob = await response.blob();
                 const url = window.URL.createObjectURL(blob);
-                state.lastMailData = { requester, department, items };
+                state.lastMailData = payload;
                 openPdfModal(url);
             } catch (error) {
                 alert('PDF oluşturulurken bir hata oluştu. Lütfen tekrar deneyin.');
@@ -1682,6 +1705,73 @@
             } finally {
                 downloadButton.innerHTML = originalLabel;
                 downloadButton.disabled = !state.selected.size;
+            }
+        };
+
+        const printReceipt = async () => {
+            if (!state.selected.size) return;
+
+            const payload = buildOrderPayload();
+            if (!payload) {
+                return;
+            }
+
+            const originalLabel = printButton.innerHTML;
+            printButton.innerHTML = `
+                <div class="spinner" style="width: 16px; height: 16px; border-width: 2px;"></div>
+                Hazırlanıyor...
+            `;
+            printButton.disabled = true;
+
+            try {
+                const response = await fetch('/api/orders/receipt', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Receipt request failed');
+                }
+
+                const receiptText = await response.text();
+                const printWindow = window.open('', '_blank', 'width=420,height=640');
+
+                if (!printWindow) {
+                    alert('Yazıcı penceresi engellendi. Lütfen açılır pencere engelleyicisini devre dışı bırakın.');
+                    return;
+                }
+
+                const escapeHtml = (value = '') => value
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+
+                const escaped = escapeHtml(receiptText);
+
+                printWindow.document.open();
+                                printWindow.document.write(`<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Sipariş Fişi</title>
+    <style>
+        body { font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace; font-size: 13px; margin: 0; padding: 20px; }
+        pre { white-space: pre-wrap; word-break: break-word; margin: 0; }
+    </style>
+</head>
+<body>
+    <pre>${escaped}</pre>
+    <script>window.addEventListener('load', function(){ setTimeout(function(){ window.print(); }, 100); });<\/script>
+</body>
+</html>`);
+                printWindow.document.close();
+            } catch (error) {
+                console.error(error);
+                alert('Yazıcı fişi hazırlanırken bir hata oluştu. Lütfen tekrar deneyin.');
+            } finally {
+                printButton.innerHTML = originalLabel;
+                printButton.disabled = !state.selected.size;
             }
         };
 
@@ -1750,6 +1840,7 @@
         });
 
         downloadButton.addEventListener('click', downloadPdf);
+        printButton.addEventListener('click', printReceipt);
         mailButton.addEventListener('click', sendMail);
 
         pdfCloseBtn.addEventListener('click', closePdfPreview);

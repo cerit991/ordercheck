@@ -3,6 +3,7 @@ const productsHandler = require('./products');
 const pdfHandler = require('./pdf');
 const settingsHandler = require('./settings');
 const emailHandler = require('./email');
+const receiptHandler = require('./receipt');
 const adminLoginHandler = require('./admin/login');
 const adminLogoutHandler = require('./admin/logout');
 const adminCategoriesHandler = require('./admin/categories');
@@ -25,6 +26,11 @@ module.exports = (req, res) => {
 
   if (pathname === '/api/orders/email' && req.method === 'POST') {
     emailHandler(req, res);
+    return;
+  }
+
+  if (pathname === '/api/orders/receipt' && req.method === 'POST') {
+    receiptHandler(req, res);
     return;
   }
 
