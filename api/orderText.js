@@ -25,8 +25,7 @@ const buildOrderLines = ({ orderId, sentAt, requester, department, items }) => {
     '',
     'Kalem Listesi:',
     ...items.map((item, index) => {
-      const groupSuffix = item.group ? ` (${item.group})` : '';
-      return `${index + 1}. ${item.name}${groupSuffix} --- ${item.quantity} ${item.unit}`;
+      return `${index + 1}. ${item.name} --- ${item.quantity} ${item.unit}`;
     }),
     '',
     `Toplam Kalem: ${items.length}`,
