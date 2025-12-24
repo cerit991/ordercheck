@@ -100,6 +100,158 @@
       background: rgba(239, 68, 68, 0.08);
     }
 
+    .filters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.85rem 1.1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    .filters label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .filters input[type="month"] {
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 10px;
+      padding: 0.45rem 0.75rem;
+      font: inherit;
+      color: var(--text-primary);
+      min-width: 170px;
+    }
+
+    .filters input[type="month"]:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .filters button {
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: var(--accent);
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 0.45rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filters button:hover {
+      background: rgba(59, 130, 246, 0.16);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .company-sidebar {
+      position: sticky;
+      top: 1.5rem;
+      align-self: start;
+    }
+
+    .sidebar-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.25rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .sidebar-header h2 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .sidebar-count {
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(59, 130, 246, 0.35);
+    }
+
+    .company-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .company-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      background: rgba(15, 23, 42, 0.4);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .company-item:hover {
+      border-color: rgba(59, 130, 246, 0.35);
+      color: var(--text-primary);
+    }
+
+    .company-item.active {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.45);
+      color: var(--text-primary);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12);
+    }
+
+    .company-item span {
+      pointer-events: none;
+    }
+
+    .company-item .count {
+      font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .company-empty {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+      padding: 0.75rem 0;
+    }
+
     .orders {
       display: flex;
       flex-direction: column;
@@ -209,6 +361,33 @@
       border-color: var(--accent);
     }
 
+    .actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: rgba(148, 163, 184, 0.08);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
     .empty {
       text-align: center;
       padding: 3rem 1rem;
@@ -232,6 +411,30 @@
         align-self: stretch;
         justify-content: center;
       }
+
+      .filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .filters label {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .filters button {
+        width: 100%;
+        text-align: center;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .company-sidebar {
+        position: static;
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -247,12 +450,36 @@
 
     <section id="status" class="status" hidden></section>
 
-    <section id="orders" class="orders"></section>
+    <section class="filters">
+      <label for="month-filter">
+        Ay filtresi
+        <input id="month-filter" type="month" />
+      </label>
+      <button id="month-clear" type="button">Filtreyi Temizle</button>
+    </section>
+
+    <div class="content">
+      <aside class="company-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-header">
+            <h2>Firmalar</h2>
+            <span id="company-count" class="sidebar-count">0</span>
+          </div>
+          <div id="company-list" class="company-list"></div>
+        </div>
+      </aside>
+
+      <section id="orders" class="orders"></section>
+    </div>
   </main>
 
   <script>
     const statusBox = document.getElementById('status');
     const ordersContainer = document.getElementById('orders');
+    const monthFilterInput = document.getElementById('month-filter');
+    const monthClearButton = document.getElementById('month-clear');
+    const companyListEl = document.getElementById('company-list');
+    const companyCountEl = document.getElementById('company-count');
 
     const formatDate = (value) => {
       if (!value) {
@@ -318,13 +545,112 @@
       statusBox.className = 'status';
     };
 
-    const renderOrders = (orders) => {
+    const escapeHtml = (value = '') => value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    const printOrderReceipt = (order) => {
+      if (!order || !order.content) {
+        alert('Sipariş içeriği bulunamadı.');
+        return;
+      }
+
+      const popup = window.open('', '_blank', 'width=420,height=640');
+      if (!popup) {
+        alert('Yazıcı penceresi engellendi. Lütfen açılır pencere engelleyicisini devre dışı bırakın.');
+        return;
+      }
+
+      const escaped = escapeHtml(order.content);
+
+      popup.document.open();
+      popup.document.write(`<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sipariş Fişi</title>
+  <style>
+    body { font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace; font-size: 13px; margin: 0; padding: 20px; }
+    pre { white-space: pre-wrap; word-break: break-word; margin: 0; }
+  </style>
+</head>
+<body>
+  <pre>${escaped}</pre>
+  <script>window.addEventListener('load', function(){ setTimeout(function(){ window.print(); }, 100); });<\/script>
+</body>
+</html>`);
+      popup.document.close();
+    };
+
+    let allOrders = [];
+    let filteredOrders = [];
+    let isMonthFiltered = false;
+    let selectedCompanyKey = null;
+
+    const COMPANY_UNKNOWN_KEY = '__unknown__';
+    const COMPANY_UNKNOWN_LABEL = 'Firma belirtilmedi';
+
+    const normalizeCompanyValue = (value) => {
+      if (typeof value !== 'string') {
+        return '';
+      }
+      return value.trim();
+    };
+
+    const getCompanyKeyFromOrder = (order) => {
+      if (!order || !order.metadata) {
+        return COMPANY_UNKNOWN_KEY;
+      }
+      const normalized = normalizeCompanyValue(order.metadata.company);
+      if (!normalized) {
+        return COMPANY_UNKNOWN_KEY;
+      }
+      try {
+        return normalized.toLocaleLowerCase('tr-TR');
+      } catch (error) {
+        return normalized.toLowerCase();
+      }
+    };
+
+    const getCompanyLabel = (value) => {
+      const normalized = normalizeCompanyValue(value);
+      return normalized || COMPANY_UNKNOWN_LABEL;
+    };
+
+    const getOrderDate = (order) => {
+      if (!order) {
+        return null;
+      }
+      const raw = order.modifiedAt || order.createdAt;
+      if (!raw) {
+        return null;
+      }
+      const date = new Date(raw);
+      if (Number.isNaN(date.getTime())) {
+        return null;
+      }
+      return date;
+    };
+
+    const renderOrders = () => {
       ordersContainer.innerHTML = '';
+      const orders = filteredOrders;
+
+      const hasCompanyFilter = Boolean(selectedCompanyKey);
 
       if (!Array.isArray(orders) || !orders.length) {
         const empty = document.createElement('div');
         empty.className = 'empty';
-        empty.textContent = 'Kayitli siparis bulunamadi.';
+        if (isMonthFiltered && hasCompanyFilter) {
+          empty.textContent = 'Secili filtreler icin siparis bulunamadi.';
+        } else if (hasCompanyFilter) {
+          empty.textContent = 'Secili firma icin siparis bulunamadi.';
+        } else if (isMonthFiltered) {
+          empty.textContent = 'Bu ay icin siparis bulunamadi.';
+        } else {
+          empty.textContent = 'Kayitli siparis bulunamadi.';
+        }
         ordersContainer.appendChild(empty);
         return;
       }
@@ -367,13 +693,25 @@
 
         head.appendChild(titleWrapper);
 
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+
         const link = document.createElement('a');
         link.className = 'download';
         link.href = `orders/${encodeURIComponent(order.name)}`;
         link.target = '_blank';
         link.rel = 'noopener';
         link.textContent = 'Dosyayi ac';
-        head.appendChild(link);
+        actions.appendChild(link);
+
+        const receiptBtn = document.createElement('button');
+        receiptBtn.type = 'button';
+        receiptBtn.className = 'btn-secondary';
+        receiptBtn.textContent = 'Yazıcı Fişi';
+        receiptBtn.addEventListener('click', () => printOrderReceipt(order));
+        actions.appendChild(receiptBtn);
+
+        head.appendChild(actions);
 
         card.appendChild(head);
 
@@ -415,6 +753,98 @@
       });
     };
 
+    const updateCompanySidebar = (orders) => {
+      if (!companyListEl) {
+        return;
+      }
+
+      const stats = new Map();
+
+      (Array.isArray(orders) ? orders : []).forEach((order) => {
+        const key = getCompanyKeyFromOrder(order);
+        const label = getCompanyLabel(order && order.metadata ? order.metadata.company : undefined);
+        const existing = stats.get(key);
+        if (existing) {
+          existing.count += 1;
+        } else {
+          stats.set(key, { label, count: 1 });
+        }
+      });
+
+      if (selectedCompanyKey && !stats.has(selectedCompanyKey)) {
+        selectedCompanyKey = null;
+      }
+
+      const items = Array.from(stats.entries()).sort((a, b) => a[1].label.localeCompare(b[1].label, 'tr', { sensitivity: 'base' }));
+
+      companyListEl.innerHTML = '';
+
+      if (companyCountEl) {
+        companyCountEl.textContent = String(items.length);
+      }
+
+      if (!items.length) {
+        const empty = document.createElement('p');
+        empty.className = 'company-empty';
+        empty.textContent = 'Firma bilgisi bulunmuyor.';
+        companyListEl.appendChild(empty);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      items.forEach(([key, data]) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'company-item';
+        button.dataset.companyKey = key;
+
+        if (selectedCompanyKey && selectedCompanyKey === key) {
+          button.classList.add('active');
+        }
+
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = data.label;
+
+        const countSpan = document.createElement('span');
+        countSpan.className = 'count';
+        countSpan.textContent = data.count;
+
+        button.append(nameSpan, countSpan);
+        fragment.appendChild(button);
+      });
+
+      companyListEl.appendChild(fragment);
+    };
+
+    const applyFilters = () => {
+      const monthValue = monthFilterInput ? monthFilterInput.value : '';
+      isMonthFiltered = Boolean(monthValue);
+
+      const sourceOrders = Array.isArray(allOrders) ? allOrders : [];
+      let scopedOrders = sourceOrders;
+
+      if (isMonthFiltered) {
+        scopedOrders = sourceOrders.filter((order) => {
+          const date = getOrderDate(order);
+          if (!date) {
+            return false;
+          }
+          const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+          return key === monthValue;
+        });
+      }
+
+      updateCompanySidebar(scopedOrders);
+
+      if (selectedCompanyKey) {
+        filteredOrders = scopedOrders.filter((order) => selectedCompanyKey === getCompanyKeyFromOrder(order));
+      } else {
+        filteredOrders = scopedOrders.slice();
+      }
+
+      renderOrders();
+    };
+
     const loadOrders = async () => {
       setStatus('Siparisler yukleniyor...');
       try {
@@ -426,13 +856,46 @@
         }
         const payload = await response.json();
         clearStatus();
-        renderOrders(payload.orders || []);
+        allOrders = Array.isArray(payload.orders) ? payload.orders : [];
+        applyFilters();
       } catch (error) {
         console.error('Orders load failed:', error);
         setStatus('Siparisler yuklenemedi. Lutfen daha sonra tekrar deneyin.', 'error');
         ordersContainer.innerHTML = '';
       }
     };
+
+    if (monthFilterInput) {
+      monthFilterInput.addEventListener('change', applyFilters);
+      monthFilterInput.addEventListener('input', applyFilters);
+    }
+
+    if (monthClearButton) {
+      monthClearButton.addEventListener('click', () => {
+        if (monthFilterInput) {
+          monthFilterInput.value = '';
+        }
+        applyFilters();
+      });
+    }
+
+    if (companyListEl) {
+      companyListEl.addEventListener('click', (event) => {
+        const target = event.target instanceof Element ? event.target.closest('.company-item') : null;
+        if (!target) {
+          return;
+        }
+        const key = target.dataset.companyKey || '';
+        if (!key) {
+          selectedCompanyKey = null;
+        } else if (selectedCompanyKey === key) {
+          selectedCompanyKey = null;
+        } else {
+          selectedCompanyKey = key;
+        }
+        applyFilters();
+      });
+    }
 
     loadOrders();
   </script>

@@ -1138,5 +1138,23 @@
     "name": "İÇİM RAHAT LAKTOZSUZ SÜT 1LT x12",
     "group": "F&C SÜT ÜRÜNLERİ",
     "unit": "ADET"
+  },
+  {
+    "code": "ST00194",
+    "name": "PİRİNÇ",
+    "group": "OTS",
+    "unit": "KG"
+  },
+  {
+    "code": "ST00195",
+    "name": "AYÇİÇEK YAĞI",
+    "group": "OTS",
+    "unit": "ADET"
+  },
+  {
+    "code": "ST00196",
+    "name": "TIBBI ELDIVEN NITRIL SIYAH MEDIUM",
+    "group": "TEMIZLIK ÜRÜNLERI",
+    "unit": "ADET"
   }
 ]
