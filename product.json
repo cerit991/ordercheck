@@ -279,109 +279,109 @@
     "code": "ST00048",
     "name": "COCA COLA 330ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00049",
     "name": "ZERO SUGAR COLA 330ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00050",
     "name": "SPRİTE 330ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00051",
     "name": "FANTA 330ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00052",
     "name": "COCA COLA PET 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00053",
     "name": "SPRİTE PET 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00054",
     "name": "FANTA PET 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00055",
     "name": "ZERO SUGAR COLA PET 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00056",
     "name": "SCHWEPPES ZERO TONİC 250ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00057",
     "name": "SCHWEPPES BITTER LEMON 250ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00058",
     "name": "SCHWEPPES MANDARIN 250ML *24",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00059",
     "name": "SCHWEPPES TONIC WATER 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00060",
     "name": "FUSE TEA MANGO ANANAS 330ML *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00061",
     "name": "FUSE TEA ŞEFTALİ 330 ML *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00062",
     "name": "FUSE TEA LİMON 330ML *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00063",
     "name": "CAPPY VİŞNELİ 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00064",
     "name": "CAPPY ANANS 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00065",
     "name": "CAPPY EKŞİELMA 1LT *12",
     "group": "DURU PAZARLAMA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00066",
@@ -441,13 +441,13 @@
     "code": "ST00075",
     "name": "KÜÇÜK CAM SU 0.3ML *12",
     "group": "ELİF TURİZM ERİKLİ",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00076",
     "name": "BÜYÜK CAM SU 0.75ML *6",
     "group": "ELİF TURİZM ERİKLİ",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00077",
@@ -723,7 +723,7 @@
     "code": "ST00123",
     "name": "S. PELLEGRINO 750ML *12",
     "group": "ELİF TURİZM ERİKLİ",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00124",
