@@ -123,37 +123,37 @@
     "code": "ST00022",
     "name": "EFES 50CL *24",
     "group": "İNCI BIRA",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00023",
     "name": "EFES MALT *20",
     "group": "İNCI BIRA",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00024",
     "name": "CORONA *24",
     "group": "İNCI BIRA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00025",
     "name": "BOMONTİ *24",
     "group": "İNCI BIRA",
-    "unit": "ADET"
+    "unit": "KOLİ"
   },
   {
     "code": "ST00026",
     "name": "TUBORG 50CL *20",
     "group": "GEBİZLİ TUBORG",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00027",
     "name": "CARLSBERG 33CL *24",
     "group": "GEBİZLİ TUBORG",
-    "unit": "ADET"
+    "unit": "KASA"
   },
   {
     "code": "ST00028",
