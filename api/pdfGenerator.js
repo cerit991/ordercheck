@@ -104,10 +104,9 @@ const drawPdfContent = (doc, { requester, department, items }) => {
 
   const columns = [
     { header: 'No', width: 40, align: 'center' },
-    { header: 'Urun Adi', width: 220, align: 'left' },
-    { header: 'Firma', width: 140, align: 'left' },
-    { header: 'Miktar', width: 70, align: 'right' },
-    { header: 'Birim', width: pageWidth - 40 - 220 - 140 - 70, align: 'center' },
+    { header: 'Urun Adi', width: 340, align: 'left' },
+    { header: 'Miktar', width: 80, align: 'right' },
+    { header: 'Birim', width: pageWidth - 40 - 340 - 80, align: 'center' },
   ];
 
   const rowHeight = 22;
@@ -154,7 +153,6 @@ const drawPdfContent = (doc, { requester, department, items }) => {
     const rowValues = [
       (rowIndex + 1).toString(),
       rowData.name || '',
-      rowData.group || '',
       rowData.quantity?.toString() || '',
       rowData.unit || '-',
     ];
@@ -209,7 +207,7 @@ const drawPdfContent = (doc, { requester, department, items }) => {
       const newPageWidth = doc.page.width - doc.page.margins.left - doc.page.margins.right;
       const widthDelta = newPageWidth - pageWidth;
       if (Math.abs(widthDelta) > 0.5) {
-        columns[4].width = newPageWidth - 40 - 220 - 140 - 70;
+        columns[3].width = newPageWidth - 40 - 340 - 80;
       }
 
       tableY = doc.page.margins.top;

@@ -6,8 +6,23 @@ const { parseJsonBody } = require('../utils');
 const productsPath = path.join(__dirname, '..', '..', 'product.json');
 const categoriesPath = path.join(__dirname, '..', '..', 'categories.json');
 
-const UNIT_SET = new Set(['ADET', 'KG', 'LT']);
+const UNIT_ALIASES = new Map([
+  ['ADET', 'ADET'],
+  ['KG', 'KG'],
+  ['LT', 'LT'],
+  ['KASA', 'KASA'],
+  ['KOLI', 'KOLİ'],
+  ['KOLİ', 'KOLİ'],
+]);
 const CODE_PATTERN = /^ST0(\d{4})$/;
+
+const normalizeUnit = (value) => {
+  if (typeof value !== 'string') {
+    return '';
+  }
+  const key = value.trim().toUpperCase();
+  return UNIT_ALIASES.get(key) || '';
+};
 
 const readProducts = async () => {
   const raw = await fs.readFile(productsPath, 'utf8');
@@ -85,9 +100,9 @@ module.exports = async (req, res) => {
       const body = await parseJsonBody(req);
       const name = typeof body?.name === 'string' ? body.name.trim() : '';
       const group = typeof body?.group === 'string' ? body.group.trim().toUpperCase() : '';
-      const unitRaw = typeof body?.unit === 'string' ? body.unit.trim().toUpperCase() : '';
+      const unitNormalized = normalizeUnit(body?.unit);
 
-      if (!name || !group || !UNIT_SET.has(unitRaw)) {
+      if (!name || !group || !unitNormalized) {
         sendJson(res, { message: 'Gecersiz urun bilgisi' }, 400);
         return;
       }
@@ -104,7 +119,7 @@ module.exports = async (req, res) => {
         code,
         name,
         group,
-        unit: unitRaw,
+        unit: unitNormalized,
       };
 
       const updated = [...products, newProduct];
