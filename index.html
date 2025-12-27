@@ -782,6 +782,24 @@
             border-color: rgba(239, 68, 68, 0.3);
         }
 
+        .btn-whatsapp {
+            background: #25d366;
+            color: #0b331a;
+            border: 1px solid #1da851;
+        }
+
+        .btn-whatsapp:hover:not(:disabled) {
+            background: #1ad060;
+            border-color: #19b653;
+            color: #062411;
+        }
+
+        .btn-whatsapp:disabled {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: rgba(29, 168, 81, 0.2);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
         .btn-sm {
             padding: 0.5rem 0.875rem;
             font-size: 0.75rem;
@@ -800,76 +818,7 @@
             height: 16px;
         }
 
-        /* Action Buttons in Header */
-        .header-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        /* Selected Items Table */
-        .selected-table-wrapper {
-            overflow-x: auto;
-            max-height: 600px;
-            overflow-y: auto;
-        }
-
-        .selected-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .selected-table thead {
-            background: linear-gradient(180deg, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0.05) 100%);
-        }
-
-        .selected-table th {
-            padding: 1rem 1.25rem;
-            text-align: left;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-light);
-            white-space: nowrap;
-        }
-
-        .selected-table th:last-child {
-            text-align: center;
-        }
-
-        .selected-table tbody tr {
-            border-top: 1px solid var(--border-color);
-            transition: all 0.2s ease;
-        }
-
-        .selected-table tbody tr:hover {
-            background: var(--bg-card-hover);
-        }
-
-        .selected-table td {
-            padding: 1rem 1.25rem;
-            font-size: 0.875rem;
-            white-space: nowrap;
-        }
-
         .selected-table .row-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            display: inline-block;
-        }
-
-        .selected-table .item-name {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .selected-table .item-quantity {
-            font-family: 'JetBrains Mono', monospace;
             font-weight: 600;
             color: var(--accent-light);
             background: rgba(99, 102, 241, 0.1);
@@ -1000,6 +949,76 @@
             display: flex;
             flex-direction: column;
             gap: 1.25rem;
+        }
+
+        .whatsapp-modal-body {
+            gap: 1.25rem;
+        }
+
+        .whatsapp-hint {
+            color: var(--text-muted);
+            font-size: 0.8125rem;
+            line-height: 1.4;
+        }
+
+        .whatsapp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            max-height: 260px;
+            overflow-y: auto;
+        }
+
+        .whatsapp-contact {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: inherit;
+            text-align: left;
+            transition: all 0.2s ease;
+        }
+
+        .whatsapp-contact:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .whatsapp-contact.active {
+            border-color: rgba(37, 211, 102, 0.6);
+            background: rgba(37, 211, 102, 0.12);
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.12);
+        }
+
+        .whatsapp-contact .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .whatsapp-contact .contact-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .whatsapp-contact .contact-phone {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+        }
+
+        .whatsapp-empty {
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
         .modal-body .form-input[readonly] {
@@ -1268,6 +1287,12 @@
                         </svg>
                         Yazıcı Fişi
                     </button>
+                    <button id="share-whatsapp" type="button" disabled class="btn btn-whatsapp">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" aria-hidden="true">
+                            <path d="M16 2.667c-7.364 0-13.333 5.97-13.333 13.333 0 2.351.612 4.633 1.778 6.65L2.667 29.333l6.841-1.744c1.95 1.067 4.154 1.63 6.492 1.631h.003c7.363 0 13.333-5.97 13.333-13.333 0-3.562-1.389-6.91-3.909-9.424C22.912 4.056 19.563 2.667 16 2.667Zm0 24.533h-.002c-2.024 0-4.003-.544-5.728-1.574l-.411-.243-4.064 1.037 1.085-3.965-.267-.41a11.308 11.308 0 0 1-1.696-5.94c0-6.249 5.086-11.333 11.333-11.333 3.026 0 5.868 1.18 8.002 3.316 2.135 2.136 3.314 4.977 3.314 8.004 0 6.248-5.085 11.333-11.333 11.333Zm6.197-8.48c-.339-.169-2.008-.99-2.318-1.103-.311-.113-.538-.169-.764.169-.226.339-.876 1.103-1.075 1.33-.198.226-.395.254-.734.085-.339-.169-1.432-.528-2.727-1.683-1.008-.899-1.688-2.009-1.887-2.348-.198-.339-.021-.522.149-.69.153-.152.339-.395.508-.593.169-.198.226-.339.339-.565.113-.226.057-.424-.028-.593-.085-.169-.764-1.84-1.046-2.521-.276-.664-.558-.574-.764-.584-.198-.01-.424-.012-.65-.012s-.593.085-.904.424c-.311.339-1.187 1.16-1.187 2.828 0 1.668 1.216 3.278 1.386 3.507.169.226 2.396 3.664 5.81 5.132.812.35 1.445.56 1.939.716.815.259 1.556.222 2.144.135.654-.097 2.008-.82 2.292-1.612.282-.79.282-1.468.198-1.612-.084-.141-.311-.226-.65-.395Z" fill="currentColor" />
+                        </svg>
+                        WhatsApp
+                    </button>
                     <button id="download-pdf" type="button" disabled class="btn btn-primary">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
@@ -1379,6 +1404,7 @@
         const pdfCloseBtn = document.getElementById('pdf-close');
         const pdfFrame = document.getElementById('pdf-frame');
         const mailButton = document.getElementById('mail-send');
+        const whatsappButton = document.getElementById('share-whatsapp');
         const itemCountBadge = document.getElementById('item-count-badge');
         const itemCount = document.getElementById('item-count');
         const groupListEl = document.getElementById('group-list');
@@ -1399,6 +1425,98 @@
                 senderEmail: '',
                 recipientEmail: '',
             },
+        };
+
+        const numberFormatter = new Intl.NumberFormat('tr-TR', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 2,
+        });
+
+        const updateWhatsappButtonState = () => {
+            if (!whatsappButton) return;
+            const hasItems = Boolean(state.selected.size);
+            whatsappButton.disabled = !hasItems;
+            whatsappButton.title = hasItems
+                ? 'Seçili siparişi WhatsApp üzerinden paylaş.'
+                : 'Önce siparişe ürün eklemelisiniz.';
+        };
+
+        const buildWhatsappMessage = (payload) => {
+            if (!payload) return '';
+
+            const lines = [
+                '*Sipariş Talebi*',
+                `Talep Eden: ${payload.requester}`,
+                `Departman: ${payload.department}`,
+                '',
+                'Ürünler:',
+            ];
+
+            payload.items.forEach((item, index) => {
+                const quantityText = numberFormatter.format(item.quantity);
+                lines.push(`${index + 1}) ${item.name} - ${quantityText} ${item.unit}`);
+            });
+
+            return lines.join('\n');
+        };
+
+        const shareViaWhatsapp = async () => {
+            if (!state.selected.size) return;
+
+            const payload = buildOrderPayload();
+            if (!payload) {
+                return;
+            }
+
+            const originalLabel = whatsappButton.innerHTML;
+            whatsappButton.innerHTML = `
+                <div class="spinner" style="width: 16px; height: 16px; border-width: 2px;"></div>
+                Hazırlanıyor...
+            `;
+            whatsappButton.disabled = true;
+
+            let message = '';
+            let receiptFormatted = false;
+
+            try {
+                const response = await fetch('/api/orders/receipt', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Receipt request failed');
+                }
+
+                message = await response.text();
+                receiptFormatted = true;
+            } catch (error) {
+                console.error(error);
+                message = buildWhatsappMessage(payload);
+            } finally {
+                whatsappButton.innerHTML = originalLabel;
+                updateWhatsappButtonState();
+            }
+
+            if (!message) {
+                alert('WhatsApp mesajı hazırlanamadı. Lütfen tekrar deneyin.');
+                return;
+            }
+
+            const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+            const popup = window.open(shareUrl, '_blank');
+
+            if (!popup) {
+                alert('WhatsApp penceresi engellendi. Lütfen açılır pencere engelleyicisini devre dışı bırakın.');
+                return;
+            }
+
+            popup.focus();
+
+            if (!receiptFormatted) {
+                alert('WhatsApp mesajı fiş formatında hazırlanamadı, özet metin ile açıldı. Lütfen WhatsApp üzerinden alıcıyı seçin.');
+            }
         };
 
         const getQuantityConstraints = (unit) => {
@@ -1544,6 +1662,7 @@
             
             downloadButton.disabled = !hasItems;
             printButton.disabled = !hasItems;
+            updateWhatsappButtonState();
             
             // Update badge
             if (hasItems) {
@@ -1855,6 +1974,7 @@
         downloadButton.addEventListener('click', downloadPdf);
         printButton.addEventListener('click', printReceipt);
         mailButton.addEventListener('click', sendMail);
+        whatsappButton.addEventListener('click', shareViaWhatsapp);
 
         pdfCloseBtn.addEventListener('click', closePdfPreview);
         pdfModal.addEventListener('click', (e) => { if (e.target === pdfModal) closePdfPreview(); });
@@ -1897,10 +2017,13 @@
                 } else {
                     mailButton.title = 'Mail ayarları eksik ya da tamamlanmamış.';
                 }
+
+                updateWhatsappButtonState();
             })
             .catch(() => {
                 state.mailConfigured = false;
                 mailButton.title = 'Mail ayarları yüklenemedi.';
+                updateWhatsappButtonState();
             });
 
         // Initial render
